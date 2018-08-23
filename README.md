@@ -79,4 +79,48 @@ It uses intelligent algorithms (similar to those used by large industries) to de
     Include two lines of code in any main.php file to protect the entire website.
 and many others...
 
-# Requirements 
+# Requirements
+* PHP
+* MySQL
+* Apache
+
+# Installation & Integration
+* 1) Create a subfolder on your FTP host or file manager (You can name it as you want)
+* 2) Upload the files in the folder - * "sources" * - in the folder you just created on your ftp server
+* 3) Create a MySQL database (Your hosting provider can assist you)
+* 4) Go to your browser and navigate to your folder path (For example: - * yourdomain.com/yourfolder * - )
+* 5) The installation wizard will open automatically and just follow the instructions
+* 6) Copy the integration code that will appear at the end of the installation
+* 7) Paste the integration code in the main files of your project (Example : - * database config (connection) .php; function .php; header .php * -;
+* 8) Put the integration code copied in a main.php file of your website
+(Examples : database configuration file - * (connection).php ; functions.php file ; header.php file * -; header.php file ; core.php file that is included in all other.php files).
+
+Example of integration code :
+
+```
+include_once "befree_folder/config.php" ;
+include_once "befree_folder/befree.php";
+```
+(Change "projectsecurity_folder" with the path on which you installed the product)
+
+To protect multiple websites, you must install BeFree on all websites.
+
+then copy the URL of the path to the Befree project and add it to the website monitoring page at the main Befree installation.
+
+# Sources and credits
+Resources used:
+* [FontAwesome.com](https://fontawesome.com/) - Font Awesome Icons
+* [GetBootstrap.com](https://getbootstrap.com/) - Bootstrap Framework
+* [DataTables.com](https://datatables.net/) - Data Tables
+* [Jquery.com](https://jquery.com/) - JQuery
+* [Github.com/almasaeed2010/AdminLte](https://github.com/almasaeed2010/AdminLTE) - Admin LTE
+* [Github.io/Select2](https://select2.github.io/) - Select2
+* [Github.com/openlayers/openlayers](https://github.com/openlayers/openlayers) -  Open Layers
+* [Chartjs.org](https://www.chartjs.org/) - ChartJS
+* [Flagsprites.com](https://www.flag-sprites.com/) - Flag sprites
+* [NoUIslider.com](https://refreshless.com/nouislider) - noUIslider
+* [Abpetkov.github.io](https://abpetkov.github.io/switchery) - Switchery
+
+# Author
+
+* **Mahid_hm** - * Code your freedom * - [about me](https://about.me/mahid_hm)
