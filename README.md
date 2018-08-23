@@ -85,15 +85,16 @@ and many others...
 * Apache
 
 # Installation & Integration
+
 * 1) Create a subfolder on your FTP host or file manager (You can name it as you want)
-* 2) Upload the files in the folder -*"sources"*- in the folder you just created on your ftp server
+* 2) Upload the files in the folder *"sources"* in the folder you just created on your ftp server
 * 3) Create a MySQL database (Your hosting provider can assist you)
-* 4) Go to your browser and navigate to your folder path (For example: -*yourdomain.com/yourfolder*- )
+* 4) Go to your browser and navigate to your folder path (For example: *yourdomain.com/yourfolder* )
 * 5) The installation wizard will open automatically and just follow the instructions
 * 6) Copy the integration code that will appear at the end of the installation
-* 7) Paste the integration code in the main files of your project (Example : -*database config (connection) .php; function .php; header .php;*-
+* 7) Paste the integration code in the main files of your project (Example : -*database config (connection) .php; function .php; header .php;*
 * 8) Put the integration code copied in a main.php file of your website
-(Examples : database configuration file -*(connection).php ; functions.php file ; header.php file*-; header.php file ; core.php file that is included in all other.php files).
+(Examples : database configuration file *(connection).php ; functions.php file ; header.php file*; header.php file ; core.php file that is included in all other.php files).
 
 Example of integration code :
 
@@ -123,7 +124,7 @@ Resources used:
 
 # Author
 
-* **Mahid_hm** -*Code your freedom*- [about me](https://about.me/mahid_hm)
+* **Mahid_hm** *Code your freedom* [about me](https://about.me/mahid_hm)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
