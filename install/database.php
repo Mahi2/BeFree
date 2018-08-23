@@ -99,3 +99,45 @@ echo $_SESSION['table_prefix'];
 </div>
 </div>
 </div>
+<?php
+if (isset($_POST['submit'])) {
+    $database_host     = $_POST['database_host'];
+    $database_name     = $_POST['database_name'];
+    $database_username = $_POST['database_username'];
+    $database_password = $_POST['database_password'];
+
+    $table_prefix = $_POST['table_prefix'];
+
+	@$db = mysqli_connect($database_host, $database_username, $database_password, $database_name);
+    if (!$db) {
+        echo '
+			   <br />
+			    <div class="alert alert-danger">
+					' . lang_key("error_check_db_connection") . '
+			    </div>
+			   ';
+    } else {
+        echo '<meta http-equiv="refresh" content="0; url=settings.php" />';
+    }
+}
+?>
+
+				</div>
+				<div class="card-footer">
+					<div class="row">
+						<center>
+							<a href="index.php" class="btn-secondary btn"><i class="fas fa-arrow-circle-left"></i> <?php
+echo lang_key("back");
+?></a>
+							<input class="btn-primary btn" type="submit" name="submit" value="<?php
+echo lang_key("next");
+?>" />
+						</center>
+					</div>
+				</div>
+				</form>
+
+
+<?php
+footer();
+?>
