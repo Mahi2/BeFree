@@ -66,3 +66,6 @@ function footer()
 
 </body>
 </html>
+<?php
+}
+?>
