@@ -45,3 +45,30 @@ echo $_SESSION['password'];
 </div>
 </div>
 </div>
+
+<?php
+if (isset($_POST['submit'])) {
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+echo '<meta http-equiv="refresh" content="0; url=done.php" />';
+}
+?>
+
+</div>
+<div class="card-footer">
+  <div class="row">
+    <center>
+      <a href="database.php" class="btn-secondary btn"><i class="fas fa-arrow-left"></i> <?php
+echo lang_key("back");
+?></a>
+      <input class="btn-primary btn" type="submit" name="submit" value="<?php
+echo lang_key("next");
+?>" />
+    </center>
+  </div>
+</div>
+</form>
+<?php
+footer();
+?>
