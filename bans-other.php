@@ -238,3 +238,49 @@ echo '
 <!--===================================================-->
 <!--END CONTENT CONTAINER-->
 </div>
+<script>
+$(document).ready(function() {
+$('#dt-basic').dataTable( {
+  "responsive": true,
+  "language": {
+    "paginate": {
+      "previous": '<i class="fas fa-angle-left"></i>',
+      "next": '<i class="fas fa-angle-right"></i>'
+    }
+  }
+} );
+
+$('#dt-basic2').dataTable( {
+  "responsive": true,
+  "language": {
+    "paginate": {
+      "previous": '<i class="fas fa-angle-left"></i>',
+      "next": '<i class="fas fa-angle-right"></i>'
+    }
+  }
+} );
+
+$('#dt-basic3').dataTable( {
+		"responsive": true,
+		"language": {
+			"paginate": {
+			  "previous": '<i class="fas fa-angle-left"></i>',
+			  "next": '<i class="fas fa-angle-right"></i>'
+			}
+		}
+	} );
+
+  $('#dt-basic4').dataTable( {
+  		"responsive": true,
+  		"language": {
+  			"paginate": {
+  			  "previous": '<i class="fas fa-angle-left"></i>',
+  			  "next": '<i class="fas fa-angle-right"></i>'
+  			}
+  		}
+  	} );
+  } );
+</script>
+<?php
+footer();
+?>
