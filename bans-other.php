@@ -54,3 +54,187 @@ $query = $mysqli->query("INSERT INTO `$table` (value, type) VALUES('$value', '$t
 }
 }
 ?>
+
+<div class="row">
+
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Ban Browser, OS or ISP</h3>
+</div>
+<div class="card-body">
+<form class="form-horizontal" action="" method="post">
+  <div class="form-group">
+    <label class="control-label">Browser, OS or ISP Name: </label>
+    <div class="col-sm-12">
+      <input name="value" class="form-control" type="text" required>
+    </div>
+  </div>
+                      <div class="form-group">
+    <label class="control-label">Type: </label>
+    <div class="col-sm-12">
+<select name="type" class="form-control" required>
+<option value="browser" selected>Browser</option>
+<option value="os">Operating System</option>
+<option value="isp">Internet Service Provider</option>
+<option value="referrer">Referrer</option>
+</select>
+    </div>
+  </div>
+      </div>
+      <div class="card-footer">
+<button class="btn btn-flat btn-danger" name="block" type="submit">Block</button>
+<button type="reset" class="btn btn-flat btn-default">Reset</button>
+</div>
+</div>
+</div>
+</form>
+
+  <div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Blocked <strong>Internet Service Providers</strong></h3>
+</div>
+<div class="card-body">
+<table id="dt-basic3" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+<thead>
+  <tr>
+            <th><i class="fas fa-globe"></i> Browser</th>
+    <th><i class="fas fa-cog"></i> Actions</th>
+  </tr>
+</thead>
+<tbody>
+<?php
+$table = $prefix . 'bans-other';
+$query = $mysqli->query("SELECT * FROM `$table` WHERE type='isp'");
+while ($row = $query->fetch_assoc()) {
+echo '
+  <tr>
+              <td>' . $row['value'] . '</td>
+    <td>
+                          <a href="?delete-id=' . $row['id'] . '" class="btn btn-flat btn-success"><i class="fas fa-unlock"></i> Unblock</a>
+    </td>
+  </tr>
+';
+}
+?>
+</tbody>
+</table>
+      </div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Blocked <strong>Browsers</strong></h3>
+</div>
+<div class="card-body">
+<table id="dt-basic" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+<thead>
+  <tr>
+            <th><i class="fas fa-globe"></i> Browser</th>
+    <th><i class="fas fa-cog"></i> Actions</th>
+  </tr>
+</thead>
+<tbody>
+<?php
+$table = $prefix . 'bans-other';
+$query = $mysqli->query("SELECT * FROM `$table` WHERE type='browser'");
+while ($row = $query->fetch_assoc()) {
+echo '
+  <tr>
+              <td>' . $row['value'] . '</td>
+    <td>
+                          <a href="?delete-id=' . $row['id'] . '" class="btn btn-flat btn-success"><i class="fas fa-unlock"></i> Unblock</a>
+    </td>
+  </tr>
+';
+}
+?>
+</tbody>
+</table>
+      </div>
+   </div>
+</div>
+
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Blocked <strong>Operating Systems</strong></h3>
+</div>
+<div class="card-body">
+<table id="dt-basic2" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+<thead>
+  <tr>
+            <th><i class="fas fa-globe"></i> Browser</th>
+    <th><i class="fas fa-cog"></i> Actions</th>
+  </tr>
+</thead>
+<tbody>
+<?php
+$table = $prefix . 'bans-other';
+$query = $mysqli->query("SELECT * FROM `$table` WHERE type='os'");
+while ($row = $query->fetch_assoc()) {
+echo '
+  <tr>
+              <td>' . $row['value'] . '</td>
+    <td>
+                          <a href="?delete-id=' . $row['id'] . '" class="btn btn-flat btn-success"><i class="fas fa-unlock"></i> Unblock</a>
+    </td>
+  </tr>
+';
+}
+?>
+</tbody>
+</table>
+      </div>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Blocked <strong>Referrers</strong></h3>
+</div>
+<div class="card-body">
+<table id="dt-basic4" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+<thead>
+  <tr>
+            <th><i class="fas fa-link"></i> Referrer</th>
+    <th><i class="fas fa-cog"></i> Actions</th>
+  </tr>
+</thead>
+<tbody>
+<?php
+$table = $prefix . 'bans-other';
+$query = $mysqli->query("SELECT * FROM `$table` WHERE type='referrer'");
+while ($row = $query->fetch_assoc()) {
+echo '
+  <tr>
+              <td>' . $row['value'] . '</td>
+    <td>
+                          <a href="?delete-id=' . $row['id'] . '" class="btn btn-flat btn-success"><i class="fas fa-unlock"></i> Unblock</a>
+    </td>
+  </tr>
+';
+}
+?>
+</tbody>
+</table>
+      </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<!--===================================================-->
+<!--End page content-->
+
+</div>
+<!--===================================================-->
+<!--END CONTENT CONTAINER-->
+</div>
