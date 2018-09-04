@@ -33,3 +33,24 @@
 				<!--===================================================-->
 				<div class="content">
 				<div class="container-fluid">
+
+<?php
+if (isset($_POST['block'])) {
+$table = $prefix . "bans-other";
+$value = addslashes($_POST['value']);
+$type  = $_POST['type'];
+
+$queryvalid = $mysqli->query("SELECT * FROM `$table` WHERE value='$value' and type='$type' LIMIT 1");
+$validator  = mysqli_num_rows($queryvalid);
+if ($validator > "0") {
+echo '<br />
+<div class="alert alert-info">
+    <p><i class="fas fa-info-circle"></i> There is already such record in the database.</p>
+</div>
+';
+} else {
+$table = $prefix . "bans-other";
+$query = $mysqli->query("INSERT INTO `$table` (value, type) VALUES('$value', '$type')");
+}
+}
+?>
