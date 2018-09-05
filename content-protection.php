@@ -147,3 +147,59 @@ if (isset($_POST['save'])) {
     $query2 = $mysqli->query("UPDATE `$table2` SET jquery_include='$jquery_include' WHERE id=1");
 }
 ?>
+<div class="content-wrapper">
+
+			<!--CONTENT CONTAINER-->
+			<!--===================================================-->
+			<div class="content-header">
+
+				<div class="container-fluid">
+				  <div class="row mb-2">
+        		    <div class="col-sm-6">
+        		      <h1 class="m-0 text-dark"><i class="fas fa-file-text"></i> Content Protection</h1>
+        		    </div>
+        		    <div class="col-sm-6">
+        		      <ol class="breadcrumb float-sm-right">
+        		        <li class="breadcrumb-item"><a href="dashboard.php"><i class="fas fa-home"></i> Admin Panel</a></li>
+        		        <li class="breadcrumb-item active">Content Protection</li>
+        		      </ol>
+        		    </div>
+        		  </div>
+    			</div>
+            </div>
+
+				<!--Page content-->
+				<!--===================================================-->
+				<div class="content">
+				<div class="container-fluid">
+
+                <div class="row">
+				<div class="col-md-12">
+
+				<form action="" method="post" class="form-horizontal form-bordered">
+<?php
+$table = $prefix . 'settings';
+$query = $mysqli->query("SELECT * FROM `$table`");
+$row   = mysqli_fetch_array($query);
+?>
+
+<div class="card card-body bg-light">
+<div class="form-group row">
+												<div class="col-md-2">
+												<label class="control-label">jQuery Include</label><br />
+
+
+														      <input type="checkbox" name="jquery_include" class="psec-switch" <?php
+if ($row['jquery_include'] == 1) {
+    echo 'checked';
+}
+?> />
+												</div>
+												<div class="col-md-10">
+												    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Enable</strong> this option if your website does not have a jquery file included
+												    <br />|
+												</div>
+												</div>
+											</div>
+
+								<button type="button submit" name="save" class="mb-xs mt-xs mr-xs btn btn-flat btn-success btn-lg btn-block"><i class="fas fa-floppy"></i>&nbsp;&nbsp;Save</button><br />
