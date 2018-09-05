@@ -59,5 +59,17 @@ if ($row['display_errors'] == 1) {
     @ini_set('display_errors', '0');
 }
 
+function get_banned($ip){
+  include 'config.php';
+  $table = $prefix . 'bans';
+  $query = $mysqli->query("SELECT * FROM '$table' WHERE ip='$ip' LIMIT 1");
+  $count = mysqli_num_rows($query);
+  if($count > 0){
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 
 ?>
