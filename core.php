@@ -78,4 +78,11 @@ function get_bannedid($ip){
   $row = mysqli_fetch_array($query);
   return $row['id'];
 }
+
+function head(){
+  include 'config.php';
+  $table = $prefix . 'settings';
+  $query = $mysqli->query("SELECT * FROM '$table' LIMIT 1");
+  $row = mysqli_fetch_array($query);
+}
 ?>
