@@ -34,4 +34,30 @@ if (basename($_SERVER['SCRIPT_NAME']) != 'html-encrypter.php' && basename($_SERV
 $table = $prefix . 'settings';
 $query = $mysqli->query("SELECT * FROM '$table' LIMIT 1");
 $row = mysqli_fetch_array($query);
+
+//Error Reporting
+if ($row['error_reporting'] == 1) {
+    @error_reporting(0);
+}
+if ($row['error_reporting'] == 2) {
+    @error_reporting(E_ERROR | E_WARNING | E_PARSE);
+}
+if ($row['error_reporting'] == 3) {
+    @error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+}
+if ($row['error_reporting'] == 4) {
+    @error_reporting(E_ALL & ~E_NOTICE);
+}
+if ($row['error_reporting'] == 5) {
+    @error_reporting(E_ALL);
+}
+
+//Displaying Errors
+if ($row['display_errors'] == 1) {
+    @ini_set('display_errors', '1');
+} else {
+    @ini_set('display_errors', '0');
+}
+
+
 ?>
