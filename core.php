@@ -71,5 +71,11 @@ function get_banned($ip){
   }
 }
 
-
+function get_bannedid($ip){
+  include 'config.php';
+  $table = $prefix . 'bans';
+  $query = $mysqli->query("SELECT * FROM '$table' WHERE ip='$ip' LIMIT 1");
+  $row = mysqli_fetch_array($query);
+  return $row['id'];
+}
 ?>
