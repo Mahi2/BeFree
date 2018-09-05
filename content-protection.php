@@ -349,3 +349,13 @@ if ($row['jquery_include'] == 1) {
                 			<!--===================================================-->
                 			<!--END CONTENT CONTAINER-->
                 </div>
+                <script>
+                var elems = Array.prototype.slice.call(document.querySelectorAll('.psec-switch'));
+
+                elems.forEach(function(html) {
+                  var switchery = new Switchery(html);
+                });
+                </script>
+                <?php
+                footer();
+                ?>
