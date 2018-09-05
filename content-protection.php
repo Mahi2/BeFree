@@ -203,3 +203,149 @@ if ($row['jquery_include'] == 1) {
 											</div>
 
 								<button type="button submit" name="save" class="mb-xs mt-xs mr-xs btn btn-flat btn-success btn-lg btn-block"><i class="fas fa-floppy"></i>&nbsp;&nbsp;Save</button><br />
+                <?php
+                $i     = 0;
+                $table = $prefix . 'content-protection';
+                $query = $mysqli->query("SELECT * FROM `$table`");
+                while ($row = $query->fetch_assoc()) {
+                    ++$i;
+                    if ($i == 1) {
+                        echo '<div class="row">';
+                    }
+                ?>
+                								<div class="col-md-4">
+                								    <div class="card card-solid card-primary">
+                								         <div class="card-header">
+                                                              <h3 class="card-title">
+                <?php
+                    if ($row['function'] == "rightclick") {
+                        echo '<i class="fas fa-mouse-pointer"></i> Right Click - Context Menu';
+                    } elseif ($row['function'] == "rightclick_images") {
+                        echo '<i class="fas fa-hand-pointer"></i> Right Click - Context Menu on Images';
+                    } elseif ($row['function'] == "cut") {
+                        echo '<i class="fas fa-cut"></i> Cut';
+                    } elseif ($row['function'] == "copy") {
+                        echo '<i class="fas fa-copy"></i> Copy';
+                    } elseif ($row['function'] == "paste") {
+                        echo '<i class="fas fa-clipboard"></i> Paste';
+                    } elseif ($row['function'] == "drag") {
+                        echo '<i class="fas fa-arrows-alt"></i> Drag';
+                    } elseif ($row['function'] == "drop") {
+                        echo '<i class="fas fa-plus-square"></i> Drop';
+                    } elseif ($row['function'] == "printscreen") {
+                        echo '<i class="fas fa-desktop"></i> PrintScreen Button';
+                    } elseif ($row['function'] == "print") {
+                        echo '<i class="fas fa-print"></i> Print';
+                    } elseif ($row['function'] == "view_source") {
+                        echo '<i class="fas fa-code"></i> View Source Keyboard Shortcut';
+                    } elseif ($row['function'] == "iframe_out") {
+                        echo '<i class="fas fa-object-group"></i> Website shows in Frames (Iframe)';
+                    } elseif ($row['function'] == "selecting") {
+                        echo '<i class="fas fa-arrows-alt-h"></i> Selecting';
+                    }
+                ?>
+                                                       </h3>
+                                                    </div>
+                									<div class="card-body">
+                										<p class="text-center">
+                <?php
+                    if ($row['function'] == "rightclick") {
+                        echo 'Prevent the Right Menu (Context Menu) from popping up';
+                    } elseif ($row['function'] == "rightclick_images") {
+                        echo 'Prevent downloading of website\'s images';
+                    } elseif ($row['function'] == "cut") {
+                        echo 'Prevent Cutting content from your website';
+                    } elseif ($row['function'] == "copy") {
+                        echo 'Prevent Copying content from your website';
+                    } elseif ($row['function'] == "paste") {
+                        echo 'Prevent Pasting content on your website';
+                    } elseif ($row['function'] == "drag") {
+                        echo 'Prevent Dragging content and objects on your website';
+                    } elseif ($row['function'] == "drop") {
+                        echo 'Prevent Dropping content and objects on your website';
+                    } elseif ($row['function'] == "printscreen") {
+                        echo 'Prevent taking screenshots of the website';
+                    } elseif ($row['function'] == "print") {
+                        echo 'Prevent printing of the pages of your website';
+                    } elseif ($row['function'] == "view_source") {
+                        echo 'Prevent the View Source Code Keyboard Shortcut (CTRL+U)';
+                    } elseif ($row['function'] == "iframe_out") {
+                        echo 'You can enable this option to ensure that your page never gets loaded into iFrames';
+                    } elseif ($row['function'] == "selecting") {
+                        echo 'Prevent content selecting on your website';
+                    }
+                ?>
+                										</p>
+                									    <hr>
+                										<div class="form-group">
+                												<label class="control-label">Activated</label>
+                												<div class="col-md-12">
+
+                														<input type="checkbox" name="<?php
+                    echo $row['function'];
+                ?>-enabled" class="psec-switch" <?php
+                    if ($row['enabled'] == 1) {
+                        echo 'checked="checked"';
+                    }
+                ?>/>
+                												    </div>
+                										</div>
+                										<div class="form-group">
+                												<label class="control-label">Alert</label>
+                												<div class="col-md-12">
+
+                														<input type="checkbox" name="<?php
+                    echo $row['function'];
+                ?>-alert" class="psec-switch" <?php
+                    if ($row['alert'] == 1) {
+                        echo 'checked="checked"';
+                    }
+                ?>
+                <?php
+                    if ($row['function'] == 'drag' OR $row['function'] == 'drop' OR $row['function'] == 'iframe_out' OR $row['function'] == 'selecting') {
+                        echo 'disabled="disabled"';
+                    }
+                ?>/>
+                												    </div>
+                									    </div>
+                										<div class="form-group">
+                												<label class="control-label">Alert Message</label>
+                													<div class="col-md-12">
+                													<input type="text" name="<?php
+                    echo $row['function'];
+                ?>-message" value="<?php
+                    echo $row['message'];
+                ?>" class="form-control input-rounded" id="inputRounded"
+                													<?php
+                    if ($row['function'] == 'drag' OR $row['function'] == 'drop' OR $row['function'] == 'iframe_out' OR $row['function'] == 'selecting') {
+                        echo 'disabled';
+                    }
+                ?>>
+                												</div>
+                									    </div>
+                									</div>
+                								</div>
+                							    </div>
+                <?php
+                    if ($i == 12) {
+                        echo '</div>';
+                    } else if (($i % 3) == 0) {
+                        echo '</div><div class="row">';
+                    }
+                }
+                ?>
+
+                								</form>
+
+                				</div>
+                                </div>
+
+                				</div>
+                				</div>
+                				<!--===================================================-->
+                				<!--End page content-->
+
+                			</div>
+                			<!--===================================================-->
+                			<!--END CONTENT CONTAINER-->
+                </div>
