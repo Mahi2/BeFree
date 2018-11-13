@@ -1,0 +1,14 @@
+{
+    "name": "bernard-ng/befree",
+    "description": "Website Security, Antivirus & Firewall || a powerful application that can secure your website against hackers, attacks and other incidents of abuse",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bernard-ng",
+            "email": "ngandubernard@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
