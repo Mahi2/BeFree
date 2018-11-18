@@ -1,14 +1,3 @@
-<?php
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    @$_SESSION['username'] = $username;
-    @$_SESSION['password'] = $password;
-    header("Location: ../index.php?step=done");
-}
-
-?>
 <center><h5><?= _lang("settings_info"); ?></h5></center>
 <br/>
 <hr/><br/>
@@ -26,7 +15,7 @@ if (isset($_POST['submit'])) {
                     name="username"
                     class="form-control"
                     placeholder="mahid_hm"
-                    value="<?= $_SESSION['username']; ?>"
+                    value="<?= $_SESSION['username'] ?? $_POST['username'] ?? '' ?>"
                     required
                 >
             </div>
@@ -44,7 +33,7 @@ if (isset($_POST['submit'])) {
                     name="password"
                     class="form-control"
                     placeholder=""
-                    value="<?= $_SESSION['password']; ?>"
+                    value="<?= $_SESSION['password'] ?? $_POST['username'] ?? '' ?>"
                     required
                 >
             </div>

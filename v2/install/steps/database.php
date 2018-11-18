@@ -1,25 +1,3 @@
-<?php
-if (isset($_POST['submit'])) {
-    $database_host = $_POST['database_host'];
-    $database_name = $_POST['database_name'];
-    $database_username = $_POST['database_username'];
-    $database_password = $_POST['database_password'];
-    $table_prefix = $_POST['table_prefix'];
-
-    @$_SESSION['database_host'] = $database_host;
-    @$_SESSION['database_username'] = $database_username;
-    @$_SESSION['database_password'] = $database_password;
-    @$_SESSION['database_name'] = $database_name;
-    @$_SESSION['table_prefix'] = $table_prefix;
-
-    @$db = mysqli_connect($database_host, $database_username, $database_password, $database_name);
-    if (!$db) {
-        $alert_message = _lang("error_check_db_connection");
-    } else {
-        header("Location: ?step=settings");
-    }
-}
-?>
 <center><h5><?= _lang("database_info"); ?></h5></center>
 <br/>
 <hr/><br/>
@@ -36,7 +14,7 @@ if (isset($_POST['submit'])) {
                         name="database_host"
                         class="form-control"
                         placeholder="localhost"
-                        value="<?= $_SESSION['database_host']; ?>"
+                        value="<?= $_SESSION['database_host'] ?? $_POST['database_host'] ?? ''; ?>"
                         required
                 >
             </div>
@@ -55,7 +33,7 @@ if (isset($_POST['submit'])) {
                         name="database_name"
                         class="form-control"
                         placeholder="security"
-                        value="<?= $_SESSION['database_name']; ?>"
+                        value="<?= $_SESSION['database_name'] ?? $_POST['database_name'] ?? ''; ?>"
                         required
                 >
             </div>
@@ -74,7 +52,7 @@ if (isset($_POST['submit'])) {
                         name="database_username"
                         class="form-control"
                         placeholder="root"
-                        value="<?= $_SESSION['database_username']; ?>"
+                        value="<?= $_SESSION['database_username'] ?? $_POST['database_username'] ?? ''; ?>"
                         required
                 >
             </div>
@@ -93,7 +71,7 @@ if (isset($_POST['submit'])) {
                         name="database_password"
                         class="form-control"
                         placeholder=""
-                        value="<?= $_SESSION['database_password']; ?>"
+                        value="<?= $_SESSION['database_password'] ?? $_POST['database_password'] ?? ''; ?>"
                 >
             </div>
         </div>
@@ -111,7 +89,7 @@ if (isset($_POST['submit'])) {
                         name="table_prefix"
                         class="form-control"
                         placeholder="security_"
-                        value="<?= $_SESSION['table_prefix']; ?>"
+                        value="<?= $_SESSION['table_prefix'] ?? $_POST['table_prefix'] ?? ''; ?>"
                 >
             </div>
         </div>

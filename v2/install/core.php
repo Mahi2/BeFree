@@ -1,7 +1,7 @@
 <?php
 
 define("DEFAULT_LANGUAGE", "en");
-define("CONFIG_FILE_DIRECTORY", dirname(__DIR__));
+define("CONFIG_FILE_DIRECTORY", dirname(__DIR__) . "/");
 define("CONFIG_FILE_NAME", "config.php");
 define("CONFIG_FILE_PATH", CONFIG_FILE_DIRECTORY . CONFIG_FILE_NAME);
 define("CONFIG_FILE_TEMPLATE", "config.tpl");
