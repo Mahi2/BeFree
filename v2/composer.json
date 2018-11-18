@@ -9,6 +9,11 @@
             "email": "ngandubernard@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Befree//": "src"
+        }
+    },
     "minimum-stability": "stable",
     "require": {}
 }
