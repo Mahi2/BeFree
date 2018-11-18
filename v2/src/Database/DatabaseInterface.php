@@ -22,4 +22,29 @@ interface DatabaseInterface
      * @return PDO
      */
     public function getPdo(): PDO;
+
+
+    /**
+     * @param $statement
+     * @param $entity
+     * @param $fetchAll
+     * @return mixed
+     */
+    public function query($statement, $entity, $fetchAll);
+
+
+    /**
+     * @param $statement
+     * @param $data
+     * @param $entity
+     * @param $fetchAll
+     * @return mixed
+     */
+    public function prepare($statement, $data, $entity, $fetchAll);
+
+
+    /**
+     * @return mixed
+     */
+    public function lastInsertId();
 }

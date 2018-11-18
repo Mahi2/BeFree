@@ -2,8 +2,16 @@
 
 use Befree\Befree;
 
+/**
+ * loads configuration and autoloader
+ */
+require_once (__DIR__ . "/config/constants.php");
 require_once(__DIR__ . "/vendor/autoload.php");
 
+
+/**
+ * Setting up a new Befree application
+ */
 $befree = new Befree();
 $befree->setDatabaseConfigFile(__DIR__. "/config/database.php");
 $befree->isInstalled();

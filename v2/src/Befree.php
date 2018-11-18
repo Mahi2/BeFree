@@ -1,6 +1,9 @@
 <?php
 namespace Befree;
 
+use Befree\Http\RequestAwareTrait;
+use Befree\Router\RouterAwareTrait;
+
 /**
  * Class Befree
  * @package Befree
@@ -9,10 +12,16 @@ class Befree
 {
 
     /**
+     * Request and redirect handler
+     */
+    use RequestAwareTrait, RouterAwareTrait;
+
+
+    /**
      * befree version
      * @var float
      */
-    private $version = 2.0;
+    private $version = VERSION;
 
     /**
      * the user configuration file
@@ -28,9 +37,10 @@ class Befree
     public function isInstalled()
     {
         if (!is_file($this->databaseConfigFile)) {
-            header("Location: install", true, 403);
+            $this->redirect('install');
         }
     }
+
 
     /**
      * @return string
