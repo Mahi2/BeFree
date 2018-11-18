@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 $configfile = 'config.php';
 if (!file_exists($configfile)) {
     echo '<meta http-equiv="refresh" content="0; url=install" />';
@@ -24,4 +28,3 @@ $_GET  = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 $error = 0;
-?>
