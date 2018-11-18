@@ -2,6 +2,8 @@
 
 namespace Befree;
 
+use Befree\Repositories\UsersRepository;
+
 /**
  * Class Auth
  * @package Befree
@@ -15,14 +17,26 @@ class Auth
      */
     public const AUTH_KEY = 'sec-username';
 
+    /**
+     * @var Session
+     */
+    private $session;
+
+    /**
+     * @var UsersRepository
+     */
+    private $users;
+
 
     /**
      * Auth constructor.
      * @param Session $session
+     * @param UsersRepository $users
      */
-    public function __construct(Session $session)
+    public function __construct(Session $session, UsersRepository $users)
     {
         $this->session = $session;
+        $this->users = $users;
     }
 
 

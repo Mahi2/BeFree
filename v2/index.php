@@ -17,11 +17,6 @@ $befree->setDatabaseConfigFile(__DIR__. "/config/database.php");
 $befree->isInstalled();
 $befree->run();
 
-$configfile = 'config.php';
-if (!file_exists($configfile)) {
-    echo '<meta http-equiv="refresh" content="0; url=install" />';
-    exit();
-}
 
 include "config.php";
 
