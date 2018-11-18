@@ -47,7 +47,7 @@ class Befree
     public function isInstalled()
     {
         if (!file_exists($this->databaseConfigFile)) {
-            $this->redirect('install');
+            $this->redirect('install/index.php');
         }
     }
 

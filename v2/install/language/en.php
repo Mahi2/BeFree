@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------
 // English (EN)
 //------------------------------------------------------------------------------
-$arrLang = array();
+$arrLang = [];
 
 $arrLang['alert_remove_files']        = "For security reasons, please remove the <b>install/</b> folder from your server!";
 $arrLang['error_check_db_connection'] = "Database connecting error! Please check your connection parameters.<br />";

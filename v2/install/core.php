@@ -1,39 +1,63 @@
 <?php
-@session_start();
 
-include_once "settings.inc.php";
+/*
+|--------------------------------------------------------------------------
+| Installation configuration
+|--------------------------------------------------------------------------
+| Starts the session if none exists,
+| Define $activeLang
+| Define configuration constants
+| Selection of the current language
+*/
 
-// Returns language key
-function lang_key($key)
-{
-    global $arrLang;
-    $output = "";
-
-    if (isset($arrLang[$key])) {
-        $output = $arrLang[$key];
-    } else {
-        $output = str_replace("_", " ", $key);
-    }
-    return $output;
+if (session_status() === PHP_SESSION_NONE) {
+    session_name('befree-session');
+    session_start();
 }
 
-include_once "languages.inc.php";
+$activeLang = [
+    "en" => "English",
+    "bg" => "Български",
+    "es" => "Spanish",
+    "de" => "German"
+];
 
-if (file_exists(CONFIG_FILE_PATH)) {
-    echo '<meta http-equiv="refresh" content="0; url=../" />';
-    exit;
+define("DEFAULT_LANGUAGE", "en");
+define("CONFIG_FILE_DIRECTORY", dirname(__DIR__));
+define("CONFIG_FILE_NAME", "config.php");
+define("CONFIG_FILE_PATH", CONFIG_FILE_DIRECTORY . CONFIG_FILE_NAME);
+define("CONFIG_FILE_TEMPLATE", "config.tpl");
+
+$lang = $_GET['lang'] ?? "";
+$currLang = $lang ?? $_SESSION ?? DEFAULT_LANGUAGE;
+include(file_exists("language/{$currLang}.php") ? "language/{$currLang}.php"  : "language/en.php");
+
+
+/**
+ * @param string $key
+ * @return mixed|string
+ */
+function _lang(string $key): string
+{
+    global $arrLang;
+    return $arrLang[$key] ?? str_replace("_", " ", $key);
+}
+
+if (file_exists(CONFIG_FILE_NAME)) {
+    header("Location: ../index.php", true, 403);
+    exit();
 }
 
 function head()
 {
 ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>BeFree - <?php
-    echo lang_key("installation_wizard");
-?></title>
+        echo lang_key("installation_wizard");
+        ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.png">
     <meta charset="utf-8">
@@ -44,25 +68,27 @@ function head()
 
 <body>
 
-    <div class="container">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-lg-12">
-                    <br /><center><h2><i class="fab fa-get-pocket"></i> BeFree - <?php
-    echo lang_key("installation_wizard");
-?></h2></center><br />
-                        <div class="jumbotron">
-<?php
-}
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-12">
+                <br/>
+                <center><h2><i class="fab fa-get-pocket"></i> BeFree - <?php
+                        echo lang_key("installation_wizard");
+                        ?></h2></center>
+                <br/>
+                <div class="jumbotron">
+                    <?php
+                    }
 
-function footer()
-{
-?>
-                        </div>
+                    function footer()
+                    {
+                    ?>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>

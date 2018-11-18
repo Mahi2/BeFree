@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------
 // Spanish (ES)
 //------------------------------------------------------------------------------
-$arrLang = array();
+$arrLang = [];
 
 $arrLang['alert_remove_files']        = "Por razones de seguridad, por favor, elimine <b>install/</b> carpeta de su servidor!";
 $arrLang['error_check_db_connection'] = "Base de datos de conexión de error! Por favor, compruebe su conexión parameters._ERROR_<br />";

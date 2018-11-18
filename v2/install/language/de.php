@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------
 // German (DE)
 //------------------------------------------------------------------------------
-$arrLang = array();
+$arrLang = [];
 
 $arrLang['alert_remove_files']        = "Aus Gründen der Sicherheit, entfernen Sie bitte <b>install/</b> Ordner auf Ihrem Server!";
 $arrLang['error_check_db_connection'] = "Datenbankverbindungsfehler! Bitte überprüfen Sie Ihre Verbindung parameters._ERROR_<br />";
