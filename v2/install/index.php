@@ -1,8 +1,58 @@
 <?php
 
-require_once('core.php');
+/**
+ * needed constant definition
+ */
+define("DEFAULT_LANGUAGE", "en");
+define("CONFIG_FILE_DIRECTORY", dirname(__DIR__) . "/");
+define("CONFIG_FILE_NAME", "config.php");
+define("CONFIG_FILE_PATH", CONFIG_FILE_DIRECTORY . CONFIG_FILE_NAME);
+define("CONFIG_FILE_TEMPLATE", "config.tpl");
+
+
+/**
+ * check if befree is already installed else setting up
+ * longuage and start the befree-session
+ */
+if (file_exists(CONFIG_FILE_NAME)) {
+    header("Location: ../index.php", true, 403);
+    exit();
+} else {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_name('befree-session');
+        session_start();
+    }
+
+    $activeLang = [
+        "en" => "English",
+        "bg" => "Български",
+        "es" => "Spanish",
+        "de" => "German"
+    ];
+
+    $lang = $_GET['lang'] ?? "";
+    $currLang = $lang ?? $_SESSION ?? DEFAULT_LANGUAGE;
+    include(file_exists("language/{$currLang}.php") ? "language/{$currLang}.php"  : "language/en.php");
+
+    function _lang(string $key): string
+    {
+        global $arrLang;
+        return $arrLang[$key] ?? str_replace("_", " ", $key);
+    }
+}
+
+
+/**
+ * the step in the installation of befree
+ * @default 'language'
+ */
 $step = $_GET['step'] ?? 'language';
 
+
+/**
+ * routing and logic of the installation
+ * and rendering installation views
+ */
 ob_start();
 switch ($step) {
     case 'language' :
@@ -62,8 +112,6 @@ switch ($step) {
 
         @$db = new mysqli($database_host, $database_username, $database_password, $database_name);
         if ($db) {
-
-            //Importing SQL Tables
             $query = '';
             $sql_dump = file( __DIR__ . "/sql/database.sql");
             $sql_dump = str_replace("<DB_PREFIX>", $table_prefix, $sql_dump);
@@ -84,7 +132,6 @@ switch ($step) {
                 }
             }
 
-            // Config file creating and writing information
             $config_file = file_get_contents(CONFIG_FILE_TEMPLATE);
             $config_file = str_replace("<DB_HOST>", $database_host, $config_file);
             $config_file = str_replace("<DB_NAME>", $database_name, $config_file);
@@ -104,7 +151,6 @@ switch ($step) {
                 echo 'Cannot open the configuration file to save the information';
             }
             fclose($f);
-
         } else {
             echo _lang("error_check_db_connection");
         }
@@ -114,5 +160,9 @@ switch ($step) {
         require('steps/language.php');
         break;
 }
+
+/**
+ * get the result and render the view
+ */
 $content = ob_get_clean();
-require('layout.php');
+require('steps/layout.php');

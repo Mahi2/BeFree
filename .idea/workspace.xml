@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e96ffc8-c1df-45ab-8384-d2295f7ee2e3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/install/core.php" afterPath="$PROJECT_DIR$/v2/install/core.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/v2/install/core.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/install/index.php" afterPath="$PROJECT_DIR$/v2/install/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/install/steps/database.php" afterPath="$PROJECT_DIR$/v2/install/steps/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/install/steps/done.php" afterPath="$PROJECT_DIR$/v2/install/steps/done.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/install/steps/settings.php" afterPath="$PROJECT_DIR$/v2/install/steps/settings.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/v2/install/layout.php" afterPath="$PROJECT_DIR$/v2/install/steps/layout.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,29 +28,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/v2/install/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2120">
-              <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
-                <marker date="1542576409758" expanded="true" signature="4129:4219" ph="INSERT INTO `${{$table}}`... " />
+                <marker date="1542577331243" expanded="true" signature="5261:5351" ph="INSERT INTO `${{$table}}`... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v2/install/core.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="done.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="done.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v2/install/steps/done.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
@@ -144,9 +133,9 @@
         <option value="$PROJECT_DIR$/v2/install/steps/language.php" />
         <option value="$PROJECT_DIR$/v2/install/steps/database.php" />
         <option value="$PROJECT_DIR$/v2/install/steps/settings.php" />
-        <option value="$PROJECT_DIR$/v2/install/index.php" />
         <option value="$PROJECT_DIR$/v2/install/core.php" />
         <option value="$PROJECT_DIR$/v2/install/steps/done.php" />
+        <option value="$PROJECT_DIR$/v2/install/index.php" />
       </list>
     </option>
   </component>
@@ -206,6 +195,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="befree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="befree" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="install" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -291,12 +298,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542551374170</updated>
-      <workItem from="1542551375727" duration="24978000" />
+      <workItem from="1542551375727" duration="25707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24978000" />
+    <option name="totallyTimeSpent" value="25707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -698,7 +705,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v2/install/layout.php">
+    <entry file="file://$PROJECT_DIR$/v2/install/steps/layout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
           <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
@@ -748,24 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v2/install/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2120">
-          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding>
-            <marker date="1542576409758" expanded="true" signature="4129:4219" ph="INSERT INTO `${{$table}}`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/v2/install/core.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v2/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -781,6 +770,24 @@
           <folding>
             <marker date="1542576799753" expanded="true" signature="7:23" ph="..." />
             <marker date="1542576799753" expanded="true" signature="254:280" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/install/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="35" column="1" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="35" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/install/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1542577331243" expanded="true" signature="5261:5351" ph="INSERT INTO `${{$table}}`... " />
           </folding>
         </state>
       </provider>
