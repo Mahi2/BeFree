@@ -5,25 +5,46 @@ namespace Befree;
  * Class Befree
  * @package Befree
  */
-class Befree {
-    
+class Befree
+{
+
+    /**
+     * befree version
+     * @var float
+     */
+    private $version = 2.0;
+
     /**
      * the user configuration file
      *
      * @var string
      */
-    public $configFile = 'config.php';
+    private $databaseConfigFile = 'config.php';
 
 
     /**
-     * befree is installed by the user ?
-     * @var bool
+     * whether befree has been install by the user
      */
-    public $isInstalled = false;
-
-
-    public function __construct()
+    public function isInstalled()
     {
+        if (!is_file($this->databaseConfigFile)) {
+            header("Location: install", true, 403);
+        }
+    }
 
+    /**
+     * @return string
+     */
+    public function getDatabaseConfigFile(): string
+    {
+        return $this->databaseConfigFile;
+    }
+
+    /**
+     * @param string $databaseConfigFile
+     */
+    public function setDatabaseConfigFile(string $databaseConfigFile)
+    {
+        $this->databaseConfigFile = $databaseConfigFile;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Befree\Http;
 
+use Befree\Helpers\Collection;
+
 /**
  * Class Request
  * @package Befree\Http

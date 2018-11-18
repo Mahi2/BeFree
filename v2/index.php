@@ -1,7 +1,12 @@
 <?php
 
+use Befree\Befree;
 
+require_once(__DIR__ . "/vendor/autoload.php");
 
+$befree = new Befree();
+$befree->setDatabaseConfigFile(__DIR__. "/config/database.php");
+$befree->run();
 
 $configfile = 'config.php';
 if (!file_exists($configfile)) {
