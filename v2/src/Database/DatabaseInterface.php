@@ -4,12 +4,15 @@ namespace Befree\Database;
 
 use \PDO;
 
+/**
+ * Interface DatabaseInterface
+ * @package Befree\Database
+ */
 interface DatabaseInterface
 {
 
     /**
-     * construction
-     *
+     * DatabaseInterface constructor.
      * @param string $dbname
      * @param string $host
      * @param string $username
