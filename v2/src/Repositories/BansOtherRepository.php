@@ -1,15 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bernard-ng
- * Date: 11/18/2018
- * Time: 7:19 PM
- */
 
 namespace Befree\Repositories;
 
 
-class BansOtherRepository
+use Befree\Repository;
+
+/**
+ * Class BansOtherRepository
+ * @package Befree\Repositories
+ */
+class BansOtherRepository extends Repository
 {
 
 }

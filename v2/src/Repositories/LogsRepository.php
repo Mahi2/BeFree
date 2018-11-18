@@ -1,15 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bernard-ng
- * Date: 11/18/2018
- * Time: 7:22 PM
- */
 
 namespace Befree\Repositories;
 
+use Befree\Repository;
 
-class LogsRepository
+/**
+ * Class LogsRepository
+ * @package Befree\Repositories
+ */
+class LogsRepository extends Repository
 {
 
 }

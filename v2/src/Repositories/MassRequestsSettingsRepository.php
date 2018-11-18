@@ -1,15 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bernard-ng
- * Date: 11/18/2018
- * Time: 7:23 PM
- */
 
 namespace Befree\Repositories;
 
 
-class MassRequestsSettingsRepository
+use Befree\Repository;
+
+/**
+ * Class MassRequestsSettingsRepository
+ * @package Befree\Repositories
+ */
+class MassRequestsSettingsRepository extends  Repository
 {
 
 }

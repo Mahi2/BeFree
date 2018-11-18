@@ -1,15 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bernard-ng
- * Date: 11/18/2018
- * Time: 7:22 PM
- */
 
 namespace Befree\Repositories;
 
 
-class LiveTrafficRepository
+use Befree\Repository;
+
+/**
+ * Class LiveTrafficRepository
+ * @package Befree\Repositories
+ */
+class LiveTrafficRepository extends Repository
 {
 
 }
