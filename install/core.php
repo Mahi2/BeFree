@@ -4,7 +4,7 @@
 include_once "settings.inc.php";
 
 // Returns language key
-function lang_key($key)
+function _lang($key)
 {
     global $arrLang;
     $output = "";
@@ -32,7 +32,7 @@ function head()
 
 <head>
     <title>BeFree - <?php
-    echo lang_key("installation_wizard");
+    echo _lang("installation_wizard");
 ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.png">
@@ -49,7 +49,7 @@ function head()
             <div class="row">
                 <div class="col-lg-12">
                     <br /><center><h2><i class="fab fa-get-pocket"></i> BeFree - <?php
-    echo lang_key("installation_wizard");
+    echo _lang("installation_wizard");
 ?></h2></center><br />
                         <div class="jumbotron">
 <?php

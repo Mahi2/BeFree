@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------
 // German (DE)
 //------------------------------------------------------------------------------
-$arrLang = array();
+$arrLang = [];
 
 $arrLang['alert_remove_files']        = "Aus Gründen der Sicherheit, entfernen Sie bitte <b>install/</b> Ordner auf Ihrem Server!";
 $arrLang['error_check_db_connection'] = "Datenbankverbindungsfehler! Bitte überprüfen Sie Ihre Verbindung parameters._ERROR_<br />";
@@ -26,4 +26,3 @@ $arrLang['password']            = "Passwort";
 $arrLang['proceed']             = "Gehen Sie zur Project SECURITY";
 $arrLang['put_code']            = "Setzen Sie nun diesen Code in einer Hauptdatei Ihrer Website zu Project SECURITY aktivieren (Change \"projectsecurity_folder\" mit dem Pfad, auf dem Sie das Produkt installiert)";
 $arrLang['success_install']     = "Project SECURITY wurde auf Ihrer Webseite erfolgreich installiert!";
-?>

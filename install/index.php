@@ -6,7 +6,7 @@ head();
   <center>
     <h6>
       <?php
-        echo lang_key("choose_language");
+        echo _lang("choose_language");
         ?>: </h6></center><br />
                                 <select name="language" class="form-control" size="4"  onChange="top.location.href=this.options[this.selectedIndex].value;" required autofocus>
                                   <option value="?lang=en" <?php
@@ -41,7 +41,7 @@ if ($curr_lang == "bg") {
                             <center>
 
                                 <input name="nextstep" type="submit" class="btn btn-primary" value="<?php
-echo lang_key("continue");
+echo _lang("continue");
 ?>" />
                                 </form>
                             </center>

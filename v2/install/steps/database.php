@@ -16,11 +16,10 @@ if (isset($_POST['submit'])) {
     if (!$db) {
         $alert_message = _lang("error_check_db_connection");
     } else {
-        header("Location: index.php?step=settings");
+        header("Location: ?step=settings");
     }
 }
 ?>
-
 <center><h5><?= _lang("database_info"); ?></h5></center>
 <br/>
 <hr/><br/>

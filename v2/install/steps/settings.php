@@ -5,14 +5,10 @@ if (isset($_POST['submit'])) {
 
     @$_SESSION['username'] = $username;
     @$_SESSION['password'] = $password;
-
-
-    echo '<meta http-equiv="refresh" content="0; url=done.php" />';
+    header("Location: ../index.php?step=done");
 }
 
 ?>
-
-
 <center><h5><?= _lang("settings_info"); ?></h5></center>
 <br/>
 <hr/><br/>
@@ -25,26 +21,32 @@ if (isset($_POST['submit'])) {
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i> </span>
                 </div>
-                <input type="text" name="username" class="form-control" placeholder="mahid_hm" value="<?php
-                echo $_SESSION['username'];
-                ?>" required>
+                <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    placeholder="mahid_hm"
+                    value="<?= $_SESSION['username']; ?>"
+                    required
+                >
             </div>
         </div>
     </div>
     <div class="form-group row">
-        <h6 class="col-sm-3"><?php
-            echo _lang("password");
-            ?>: </h6>
+        <h6 class="col-sm-3"><?= _lang("password"); ?>: </h6>
         <div class="col-sm-8">
             <div class="input-group">
                 <div class="input-group-prepend">
-<span class="input-group-text">
-<i class="fas fa-key"></i>
-</span>
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="password" name="password" class="form-control" placeholder="" value="<?php
-                echo $_SESSION['password'];
-                ?>" required>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder=""
+                    value="<?= $_SESSION['password']; ?>"
+                    required
+                >
             </div>
         </div>
     </div>
@@ -53,16 +55,12 @@ if (isset($_POST['submit'])) {
     <div class="card-footer">
         <div class="row">
             <center>
-                <a href="database.php" class="btn-secondary btn"><i class="fas fa-arrow-left"></i> <?php
-                    echo _lang("back");
-                    ?></a>
-                <input class="btn-primary btn" type="submit" name="submit" value="<?php
-                echo _lang("next");
-                ?>"/>
+                <a href="database.php" class="btn-secondary btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <?= _lang("back"); ?>
+                </a>
+                <input class="btn-primary btn" type="submit" name="submit" value="<?= _lang("next"); ?>"/>
             </center>
         </div>
     </div>
 </form>
-<?php
-footer();
-?>

@@ -9,14 +9,14 @@ head();
 @$_SESSION['table_prefix'] = $_POST['table_prefix'];
 ?>
 <center><h5><?php
-echo lang_key("database_info");
+echo _lang("database_info");
 ?></h5></center><br /><hr /><br />
 
 <form method="post" action="" class="form-horizontal row-border">
 
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("database_host");
+echo _lang("database_host");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -33,7 +33,7 @@ echo $_SESSION['database_host'];
 </div>
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("database_name");
+echo _lang("database_name");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -50,7 +50,7 @@ echo $_SESSION['database_name'];
 </div>
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("database_username");
+echo _lang("database_username");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -67,7 +67,7 @@ echo $_SESSION['database_username'];
 </div>
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("database_password");
+echo _lang("database_password");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -84,7 +84,7 @@ echo $_SESSION['database_password'];
 </div>
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("table_prefix");
+echo _lang("table_prefix");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
         echo '
 			   <br />
 			    <div class="alert alert-danger">
-					' . lang_key("error_check_db_connection") . '
+					' . _lang("error_check_db_connection") . '
 			    </div>
 			   ';
     } else {
@@ -127,10 +127,10 @@ if (isset($_POST['submit'])) {
 					<div class="row">
 						<center>
 							<a href="index.php" class="btn-secondary btn"><i class="fas fa-arrow-circle-left"></i> <?php
-echo lang_key("back");
+echo _lang("back");
 ?></a>
 							<input class="btn-primary btn" type="submit" name="submit" value="<?php
-echo lang_key("next");
+echo _lang("next");
 ?>" />
 						</center>
 					</div>

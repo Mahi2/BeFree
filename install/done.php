@@ -68,25 +68,25 @@ if ($db) {
       fclose($f);
 
   } else {
-      echo lang_key("error_check_db_connection");
+      echo _lang("error_check_db_connection");
   }
   ?>
   <center>
   <div class="alert alert-success">
   <?php
-  echo lang_key("success_install");
+  echo _lang("success_install");
   ?>
   </div>
 
   <div class="alert alert-warning">
   <?php
-  echo lang_key("alert_remove_files");
+  echo _lang("alert_remove_files");
   ?>
   </div>
 
   <div class="alert alert-info">
   <?php
-  echo lang_key("put_code");
+  echo _lang("put_code");
   ?>
   <br /><br />
   	<kbd>
@@ -96,7 +96,7 @@ if ($db) {
   </div>
 
   <a href="../" class="btn-success btn"><i class="fas fa-arrow-circle-right"></i> <?php
-  echo lang_key("proceed");
+  echo _lang("proceed");
   ?></a>
   </center>
   <?php

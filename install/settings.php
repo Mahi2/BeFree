@@ -6,14 +6,14 @@ head();
 @$_SESSION['password'] = $_POST['password'];
 ?>
 <center><h5><?php
-echo lang_key("settings_info");
+echo _lang("settings_info");
 ?></h5></center><br /><hr /><br />
 
     <form method="post" action="" class="form-horizontal row-border">
 
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("username");
+echo _lang("username");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -30,7 +30,7 @@ echo $_SESSION['username'];
 </div>
 <div class="form-group row">
 <h6 class="col-sm-3"><?php
-echo lang_key("password");
+echo _lang("password");
 ?>: </h6>
 <div class="col-sm-8">
 <div class="input-group">
@@ -60,10 +60,10 @@ echo '<meta http-equiv="refresh" content="0; url=done.php" />';
   <div class="row">
     <center>
       <a href="database.php" class="btn-secondary btn"><i class="fas fa-arrow-left"></i> <?php
-echo lang_key("back");
+echo _lang("back");
 ?></a>
       <input class="btn-primary btn" type="submit" name="submit" value="<?php
-echo lang_key("next");
+echo _lang("next");
 ?>" />
     </center>
   </div>
