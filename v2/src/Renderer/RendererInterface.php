@@ -1,15 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bernard-ng
- * Date: 11/18/2018
- * Time: 7:46 PM
- */
 
 namespace Befree\Renderer;
 
-
+/**
+ * Interface RendererInterface
+ * @package Befree\Renderer
+ */
 interface RendererInterface
 {
+    /**
+     * render a view
+     * @param string $view
+     * @param array $param
+     * @return mixed
+     */
+    public function render(string $view, array $param);
 
+
+    /**
+     * define a global variable, accessible to any view
+     * @param string $key
+     * @param $value
+     * @return mixed
+     */
+    public function addGlobal(string $key, $value);
 }
