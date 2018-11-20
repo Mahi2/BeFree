@@ -10,7 +10,12 @@ namespace Befree\Helpers;
 class IpDetails
 {
 
-    public function get(string $ip, $useragent)
+    /**
+     * get more details of an ip
+     * @param string $ip
+     * @param $useragent
+     */
+    public function __construct(string $ip, $useragent)
     {
         $url = "http://extreme-ip-lookup.com/json/{$ip}";
 

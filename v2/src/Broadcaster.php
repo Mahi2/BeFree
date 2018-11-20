@@ -2,6 +2,7 @@
 namespace Befree;
 
 
+use Befree\Helpers\IpDetails;
 use Befree\Helpers\UserAgentFactoryPS;
 use Befree\Http\RequestAwareTrait;
 use Befree\Repositories\BansRepository;
@@ -130,7 +131,7 @@ class Broadcaster
             'referer' => $this->getUserAgentData('referer')
         ];
 
-        $this->logs->create($data);
+        $this->logs->create(array_merge($data, new IpDetails($data['ip'], $data['useragent'])));
 
         $ltable = $prefix . 'logs';
         $queryvalid = $mysqli->query("SELECT ip, page, query, type, date FROM `$ltable` WHERE ip='$ip' and page='$page' and query='$querya' and type='$type' and date='$date' LIMIT 1");
