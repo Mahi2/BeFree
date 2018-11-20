@@ -110,42 +110,39 @@ class Broadcaster
     }
 
 
+    /**
+     * add a log to the database log systeme
+     * @param string $type
+     */
+    public function logging(string $type)
+    {
+        $data = [
+            'ip' => $this->getRealIp(),
+            'page' => $this->getUserAgentData('page'),
+            'querya' => '',
+            'date' => $this->getUserAgentData('date'),
+            'time' => $this->getUserAgentData('time'),
+            'browser' => $this->getUserAgentData('browser'),
+            'browser_code' => $this->getUserAgentData('browser_code'),
+            'os' => $this->getUserAgentData('os'),
+            'os_code' => $this->getUserAgentData('os_code'),
+            'useragent' => $this->getUserAgentData('useragent'),
+            'referer' => $this->getUserAgentData('referer')
+        ];
+
+        $this->logs->create($data);
+
+        $ltable = $prefix . 'logs';
+        $queryvalid = $mysqli->query("SELECT ip, page, query, type, date FROM `$ltable` WHERE ip='$ip' and page='$page' and query='$querya' and type='$type' and date='$date' LIMIT 1");
+        if ($queryvalid->num_rows <= 0) {
+            include_once "lib/ip_details.php";
+            $log = $mysqli->query("INSERT INTO `$ltable` (`ip`, `date`, `time`, `page`, `query`, `type`, `browser`, `browser_code`, `os`, `os_code`, `country`, `country_code`, `region`, `city`, `latitude`, `longitude`, `isp`, `useragent`, `referer_url`) VALUES ('$ip', '$date', '$time', '$page', '$querya', '$type', '$browser', '$browser_code', '$os', '$os_code', '$country', '$country_code', '$region', '$city', '$latitude', '$longitude', '$isp', '$useragent', '$referer')");
+        }
+    }
+
+
     public function emit()
     {
-
-//Getting Browser and Operating System
-        include dirname(__FILE__) . '/lib/useragent.class.php';
-        $useragent_data = UserAgentFactoryPS::analyze($_SERVER['HTTP_USER_AGENT']);
-
-//Getting Visitor Information
-        if ($srow['ip_detection'] == 2) {
-            $ip = psec_get_realip();
-        } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
-        }
-        $page = $_SERVER['PHP_SELF'];
-        $browser = $useragent_data->browser['title'];
-        $browsersh = $useragent_data->browser['name'];
-        $browser_code = $useragent_data->browser['code'];
-        $os = $useragent_data->os['title'];
-        $ossh = $useragent_data->os['name'] . " " . $useragent_data->os['version'];
-        $os_code = $useragent_data->os['code'];
-        @$useragent = $_SERVER['HTTP_USER_AGENT'];
-        @$referer = $_SERVER["HTTP_REFERER"];
-        @$date = @date("d F Y");
-        @$time = @date("H:i");
-
-        function psec_logging($mysqli, $prefix, $type)
-        {
-            global $ip, $page, $querya, $date, $time, $browser, $browser_code, $os, $os_code, $useragent, $referer;
-
-            $ltable = $prefix . 'logs';
-            $queryvalid = $mysqli->query("SELECT ip, page, query, type, date FROM `$ltable` WHERE ip='$ip' and page='$page' and query='$querya' and type='$type' and date='$date' LIMIT 1");
-            if ($queryvalid->num_rows <= 0) {
-                include_once "lib/ip_details.php";
-                $log = $mysqli->query("INSERT INTO `$ltable` (`ip`, `date`, `time`, `page`, `query`, `type`, `browser`, `browser_code`, `os`, `os_code`, `country`, `country_code`, `region`, `city`, `latitude`, `longitude`, `isp`, `useragent`, `referer_url`) VALUES ('$ip', '$date', '$time', '$page', '$querya', '$type', '$browser', '$browser_code', '$os', '$os_code', '$country', '$country_code', '$region', '$city', '$latitude', '$longitude', '$isp', '$useragent', '$referer')");
-            }
-        }
 
         function psec_autoban($mysqli, $prefix, $type)
         {
