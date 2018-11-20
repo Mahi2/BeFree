@@ -12,4 +12,9 @@ use Befree\Repository;
 class AdblockerSettingsRepository extends Repository
 {
 
+    /**
+     * the name of the table
+     * @var string
+     */
+    private $table = 'adblocker-settings';
 }

@@ -14,7 +14,7 @@ class Repository
      * the repository table name in database
      * @var string
      */
-    protected $table;
+    private $table;
 
 
     /**
@@ -22,6 +22,12 @@ class Repository
      * @var mixed
      */
     protected $entity;
+
+    /**
+     * the prefix of tables
+     * @var string
+     */
+    protected $prefix;
 
 
     /**
@@ -34,9 +40,11 @@ class Repository
     /**
      * Repository constructor.
      * @param DatabaseInterface $database
+     * @param string $prefix
      */
-    public function __construct(DatabaseInterface $database)
+    public function __construct(DatabaseInterface $database, string $prefix)
     {
+        $this->prefix = $prefix;
         $this->db = $database;
     }
 
@@ -122,5 +130,23 @@ class Repository
     public function lastInsertId()
     {
         return $this->db->lastInsertId();
+    }
+
+    /**
+     * @return string
+     */
+    public function getTable(): string
+    {
+        return $this->prefix . $this->table;
+    }
+
+
+    /**
+     * get all data of a database table
+     * @return mixed
+     */
+    public function all()
+    {
+        return $this->query("SELECT * FROM {$this->getTable()}");
     }
 }

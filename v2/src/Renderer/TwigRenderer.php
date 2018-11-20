@@ -30,8 +30,6 @@ class TwigRenderer implements RendererInterface
         if (ENV === 'development') {
             $this->twig->addExtension(new \Twig_Extension_Debug());
         }
-
-        //$this->twig->addExtension(new \Twig_Extensions_Extension_Text());
     }
 
 
