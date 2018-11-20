@@ -70,7 +70,7 @@ class Collection implements \IteratorAggregate, \ArrayAccess
     /**
      * retrieve a key in collection
      * @param mixed $key recupere la clef d'un tableau.
-     * @return $value
+     * @return mixed
      **/
     public function get($key)
     {

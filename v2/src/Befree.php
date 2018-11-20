@@ -1,9 +1,8 @@
 <?php
 namespace Befree;
 
-use Befree\Http\RequestAwareTrait;
-use Befree\Router\RouterAwareTrait;
 use Exception;
+use Befree\Router\RouterAwareTrait;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -39,24 +38,23 @@ class Befree
      *
      * @var string
      */
-    private $databaseConfigFile = 'database.php';
+    private $databaseConfigFile = ROOT . '/config.php';
 
 
     /**
      * whether befree has been install by the user
+     * @return boolean
      */
-    public function isInstalled()
+    public function isInstalled(): bool
     {
-        if (!file_exists($this->databaseConfigFile)) {
-            $this->redirect('install/index.php');
-        }
+        return file_exists($this->databaseConfigFile);
     }
 
 
     /**
      * run the befree application
      */
-    public function run ()
+    public function run()
     {
         try {
             $route = ($this->getRouter())->run();

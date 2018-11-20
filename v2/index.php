@@ -18,6 +18,11 @@ $container = $container->build();
  * Setting up a new Befree application
  */
 $app = new Befree($container);
-$app->setDatabaseConfigFile(__DIR__ . "/config.php");
-$app->isInstalled();
-$app->run();
+
+if ($app->isInstalled()) {
+   if (php_sapi_name() !== 'cli') {
+       $app->run();
+   }
+} else {
+    $app->redirect('install/index.php', 403);
+}
