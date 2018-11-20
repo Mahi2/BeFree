@@ -43,7 +43,7 @@ interface DatabaseInterface
      * @param $fetchAll
      * @return mixed
      */
-    public function prepare($statement, $data, $entity, $fetchAll);
+    public function prepare(string $statement, array $data, ?string $entity, bool $fetchAll);
 
 
     /**
