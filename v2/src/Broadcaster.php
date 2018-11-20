@@ -2,14 +2,34 @@
 namespace Befree;
 
 
+use Befree\Repositories\BansRepository;
+use Befree\Repositories\LogsRepository;
+use Befree\Repositories\SettingsRepository;
 use DI\Container;
 
+/**
+ * Class Broadcaster
+ * @package Befree
+ */
 class Broadcaster
 {
+    /**
+     * @var Container
+     */
+    private $container;
+
+    /**
+     * Broadcaster constructor.
+     * @param Container $container
+     */
     public function __construct(Container $container)
     {
-
+        $this->container = $container;
+        $this->settings = $container->get(SettingsRepository::class);
+        $this->logs = $container->get(LogsRepository::class);
+        $this->bans = $container->get(BansRepository::class);
     }
+
 
     public function emit()
     {
