@@ -75,7 +75,7 @@ class Action
      * @param string $filename
      * @param array $params
      */
-    protected function view(string $filename, array $params): void
+    protected function view(string $filename, array $params = []): void
     {
         $renderer = $this->container->get(TwigRenderer::class);
         $renderer->render($filename, $params);

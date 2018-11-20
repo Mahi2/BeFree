@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script type="text/javascript" id="<?= $this->name ?>">
     document.addEventListener("DOMContentLoaded", function() {
         var testAd = document.createElement("div");
         testAd.innerHTML = "&nbsp;";
