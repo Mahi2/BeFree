@@ -4,6 +4,7 @@ namespace Befree;
 use Befree\Http\RequestAwareTrait;
 use Befree\Router\RouterAwareTrait;
 use Exception;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class Befree
@@ -15,7 +16,7 @@ class Befree
     /**
      * Request and redirect handler
      */
-    use RequestAwareTrait, RouterAwareTrait;
+    use RouterAwareTrait;
 
     /**
      * @var ContainerInterface
