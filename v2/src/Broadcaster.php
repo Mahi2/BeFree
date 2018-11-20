@@ -2,6 +2,8 @@
 namespace Befree;
 
 
+use Befree\Helpers\UserAgentFactoryPS;
+use Befree\Http\RequestAwareTrait;
 use Befree\Repositories\BansRepository;
 use Befree\Repositories\LogsRepository;
 use Befree\Repositories\SettingsRepository;
@@ -13,10 +15,37 @@ use DI\Container;
  */
 class Broadcaster
 {
+
+    /**
+     * gives access to request data
+     */
+    use RequestAwareTrait;
+
+
     /**
      * @var Container
      */
     private $container;
+
+    /**
+     * @var SettingsRepository|mixed
+     */
+    private $settings;
+
+    /**
+     * @var LogsRepository|mixed
+     */
+    private $logs;
+
+    /**
+     * @var BansRepository|mixed
+     */
+    private $bans;
+
+    /**
+     * @var Http\Request
+     */
+    private $request;
 
     /**
      * Broadcaster constructor.
@@ -28,39 +57,61 @@ class Broadcaster
         $this->settings = $container->get(SettingsRepository::class);
         $this->logs = $container->get(LogsRepository::class);
         $this->bans = $container->get(BansRepository::class);
+        $this->request = $this->getRequest();
+    }
+
+
+    /**
+     * get some data about the user agent
+     * @param string $key
+     * @return string
+     */
+    public function getUserAgentData(string $key): string
+    {
+        $useragent = UserAgentFactoryPS::analyze($this->request->get('http.user.agent'));
+        $data = [
+            'page' => $this->request->get('php.self'),
+            'browser' => $useragent->browser['title'],
+            'browsersh' => $useragent->browser['name'],
+            'browser_code' => $useragent->browser['code'],
+            'os' => $useragent->os['title'],
+            'ossh' => "{$useragent->os['name']} {$useragent->os['version']}",
+            'os_code' => $useragent->os['code'],
+            'useragent' => $this->request->get('http.user.agent'),
+            'referer' => $this->request->get('http.referer'),
+            'date' => (new \DateTime('now'))->format('d F Y'),
+            'time' => (new \DateTime('now'))->format('H:i')
+        ];
+
+        if (array_key_exists($key, $data)) {
+            return $data[$key];
+        }
+        return null;
+    }
+
+
+    /**
+     * return the real ip of a user
+     * @return array|false|null|string
+     */
+    public function getRealIp()
+    {
+        if ($this->settings->ip_detection == 2) {
+            return getenv('HTTP_CLIENT_IP')
+                ?? getenv('HTTP_X_FORWARDED_FOR')
+                ?? getenv('HTTP_X_FORWARDED')
+                ?? getenv('HTTP_FORWARDED_FOR')
+                ?? getenv('HTTP_FORWARDED')
+                ?? getenv('REMOTE_ADDR')
+                ?? $this->request->get('remote.addr')
+                ?? '';
+        }
+        return '';
     }
 
 
     public function emit()
     {
-        $table = $prefix . 'settings';
-        $squery = $mysqli->query("SELECT * FROM `$table`");
-        $srow = $squery->fetch_assoc();
-
-//Getting Real IP Address
-        if ($srow['ip_detection'] == 2)
-        {
-
-            function psec_get_realip()
-            {
-                $ipaddress = '';
-                if (getenv('HTTP_CLIENT_IP'))
-                    $ipaddress = getenv('HTTP_CLIENT_IP');
-                else if (getenv('HTTP_X_FORWARDED_FOR'))
-                    $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-                else if (getenv('HTTP_X_FORWARDED'))
-                    $ipaddress = getenv('HTTP_X_FORWARDED');
-                else if (getenv('HTTP_FORWARDED_FOR'))
-                    $ipaddress = getenv('HTTP_FORWARDED_FOR');
-                else if (getenv('HTTP_FORWARDED'))
-                    $ipaddress = getenv('HTTP_FORWARDED');
-                else if (getenv('REMOTE_ADDR'))
-                    $ipaddress = getenv('REMOTE_ADDR');
-                else
-                    $ipaddress = $_SERVER['REMOTE_ADDR'];
-                return $ipaddress;
-            }
-        }
 
 //Getting Browser and Operating System
         include dirname(__FILE__) . '/lib/useragent.class.php';
