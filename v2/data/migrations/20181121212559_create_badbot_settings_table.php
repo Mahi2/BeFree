@@ -2,6 +2,8 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Befree\ConfigProvider;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateBadbotSettingsTable extends AbstractMigration
 {
@@ -32,6 +34,39 @@ class CreateBadbotSettingsTable extends AbstractMigration
      */
     public function change()
     {
+        $prefix = (new ConfigProvider(ROOT."/config.php"))->get('database.prefix');
 
+        $this->table($prefix . "badbot-settings")
+            ->addColumn('protection', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 1
+            ])
+            ->addColumn('protection2', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 1
+            ])
+            ->addColumn('protection3', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 1
+            ])
+            ->addColumn('logging', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 1
+            ])
+            ->addColumn('autoban', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 0
+            ])
+            ->addColumn('mail', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 0
+            ])
+            ->create();
     }
 }
