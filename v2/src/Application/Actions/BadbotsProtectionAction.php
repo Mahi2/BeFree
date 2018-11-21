@@ -1879,49 +1879,27 @@ class BadbotsProtectionAction extends Action
     }
 
 
+    /**
+     * Detect a bod bot and ban it
+     */
     public function run()
     {
         $badBots = $this->getBadbots();
-        $logs = $this->container->get(LogsRepository::class);
-
+        $userAgent = $this->broadcaster->getUserAgentData('useragent');
         foreach ($badBots as $bot) {
-            if (strpos(strtolower($useragent), strtolower($bot)) !== false) {
+            if (strpos(strtolower($userAgent), strtolower($bot)) !== false) {
                 $type = "Bad Bot";
 
                 if ($this->settings->logging == 1) {
-                    $logs->create();
+                    $this->broadcaster->logging($type);
                 }
 
                 if ($this->settings->autobad == 1) {
-
+                    $this->broadcaster->autoBan($type);
                 }
 
                 if ($this->settings->mail_notifications == 1 && $this->settings->mail == 1) {
-
-                }
-
-                $this->view($this->name);
-            }
-        }
-
-        foreach ($bad_bots as $bot) {
-            if (strpos(strtolower($useragent), strtolower($bot)) !== false) {
-
-                $type = "Bad Bot";
-
-                //Logging
-                if ($row['logging'] == 1) {
-                    psec_logging($mysqli, $prefix, $type);
-                }
-
-                //AutoBan
-                if ($row['autoban'] == 1) {
-                    psec_autoban($mysqli, $prefix, $type);
-                }
-
-                //E-Mail Notification
-                if ($srow['mail_notifications'] == 1 && $row['mail'] == 1) {
-                    psec_mail($mysqli, $prefix, $site_url, $projectsecurity_path, $type, $srow['email']);
+                    $this->broadcaster->emailNotify($type, 'dkd');
                 }
 
                 $this->view($this->name);

@@ -1,6 +1,7 @@
 <?php
 
 namespace Befree\Actions;
+use Befree\Broadcaster;
 use Befree\Renderer\TwigRenderer;
 use Befree\Repositories\SettingsRepository;
 use DI\Container;
@@ -49,8 +50,9 @@ class Action
     public function __construct(Container $container)
     {
         $this->container = $container;
+        $this->broadcaster = $container->get(Broadcaster::class);
         $this->settings = ($container->get(SettingsRepository::class))->all();
-        $this->realTimeProtection = $this->settings->realtimeprotection;
+        $this->realTimeProtection = $this->settings->realtime_protection;
     }
 
 

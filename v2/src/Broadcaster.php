@@ -55,10 +55,10 @@ class Broadcaster
     public function __construct(Container $container)
     {
         $this->container = $container;
-        $this->settings = $container->get(SettingsRepository::class);
         $this->logs = $container->get(LogsRepository::class);
         $this->bans = $container->get(BansRepository::class);
         $this->request = $this->getRequest();
+        $this->settings = $container->get(SettingsRepository::class);
     }
 
 
@@ -133,55 +133,75 @@ class Broadcaster
 
         $this->logs->create(array_merge($data, new IpDetails($data['ip'], $data['useragent'])));
 
-        $ltable = $prefix . 'logs';
+        /*$ltable = $prefix . 'logs';
         $queryvalid = $mysqli->query("SELECT ip, page, query, type, date FROM `$ltable` WHERE ip='$ip' and page='$page' and query='$querya' and type='$type' and date='$date' LIMIT 1");
         if ($queryvalid->num_rows <= 0) {
             include_once "lib/ip_details.php";
             $log = $mysqli->query("INSERT INTO `$ltable` (`ip`, `date`, `time`, `page`, `query`, `type`, `browser`, `browser_code`, `os`, `os_code`, `country`, `country_code`, `region`, `city`, `latitude`, `longitude`, `isp`, `useragent`, `referer_url`) VALUES ('$ip', '$date', '$time', '$page', '$querya', '$type', '$browser', '$browser_code', '$os', '$os_code', '$country', '$country_code', '$region', '$city', '$latitude', '$longitude', '$isp', '$useragent', '$referer')");
-        }
+        }*/
     }
 
 
-    public function emit()
+    /**
+     * autoban a user using his ip
+     * @param string $type
+     */
+    public function autoBan(string $type)
     {
+        $data = [
+            'ip' => $this->getRealIp(),
+            'date' => $this->getUserAgentData('date'),
+            'time' => $this->getUserAgentData('time'),
+            'reason' => $type,
+            'autoban' => '1'
+        ];
 
-        function psec_autoban($mysqli, $prefix, $type)
-        {
-            global $ip, $date, $time;
-
-            $btable = $prefix . 'bans';
-            $bansvalid = $mysqli->query("SELECT ip FROM `$btable` WHERE ip='$ip' LIMIT 1");
-            if ($bansvalid->num_rows <= 0) {
-                $log = $mysqli->query("INSERT INTO `$btable` (ip, date, time, reason, autoban) VALUES ('$ip', '$date', '$time', '$type', '1')");
-            }
+        $isBanded = $this->bans->findWith('ip', $data['ip']);
+        if (!$isBanded) {
+            $this->bans->create($data);
         }
-
-        function psec_mail($mysqli, $prefix, $site_url, $projectsecurity_path, $type, $smail)
-        {
-            global $ip, $date, $time, $browser, $os, $page, $referer, $smail;
-
-            $email = 'notifications@' . $_SERVER['SERVER_NAME'] . '';
-            $to = $smail;
-            $subject = 'BeFree - ' . $type . '';
-            $message = '
-					<p style="padding:0; margin:0 0 11pt 0;line-height:160%; font-size:18px;">Details of Log - ' . $type . '</p>
-					<p>IP Address: <strong>' . $ip . '</strong></p>
-					<p>Date: <strong>' . $date . '</strong> at <strong>' . $time . '</strong></p>
-					<p>Browser:  <strong>' . $browser . '</strong></p>
-					<p>Operating System:  <strong>' . $os . '</strong></p>
-					<p>Threat Type:  <strong>' . $type . '</strong> </p>
-					<p>Page:  <strong>' . $page . '</strong> </p>
-                	<p>Referer URL:  <strong>' . $referer . '</strong> </p>
-                	<p>Site URL:  <strong>' . $site_url . '</strong> </p>
-                	<p>Project SECURITY URL:  <strong>' . $projectsecurity_path . '</strong> </p>
-				';
-            $headers = 'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-            $headers .= 'To: ' . $to . ' <' . $to . '>' . "\r\n";
-            $headers .= 'From: ' . $email . ' <' . $email . '>' . "\r\n";
-            @mail($to, $subject, $message, $headers);
-        }
-
     }
 
+
+    /**
+     * notify the user via mail
+     * @param string $type
+     * @param string $mail
+     */
+    public function emailNotify(string $type, string $mail)
+    {
+        $data = [
+            'ip' => $this->getRealIp(),
+            'date' => $this->getUserAgentData('date'),
+            'time' => $this->getUserAgentData('time'),
+            'browser' => $this->getUserAgentData('browser'),
+            'os' => $this->getUserAgentData('os'),
+            'page' => $this->getUserAgentData('page'),
+            'referer' => $this->getUserAgentData('referer')
+        ];
+
+        $site_url = SITE_URL;
+        $befree_path = 'dkfj';
+        $email = "notifications@{$this->request->get('server.name')}";
+        $to = $mail;
+        $subject = "Befree - {$type}";
+        $message = <<< EOF
+<p style="padding:0; margin:0 0 11pt 0;line-height:160%; font-size:18px;">Details of Log - {$type} </p>
+<p>IP Address: <strong>{$data['ip']}</strong></p>
+<p>Date: <strong>{$data['date']}</strong> at <strong>{$data['time']}</strong></p>
+<p>Browser:  <strong>{$data['browser']}</strong></p>
+<p>Operating System:  <strong>{$data['os']}</strong></p>
+<p>Threat Type:  <strong>{$type}</strong> </p>
+<p>Page:  <strong>{$data['page']}</strong> </p>
+<p>Referer URL:  <strong>{$data['referer']}</strong> </p>
+<p>Site URL:  <strong>{$site_url}</strong> </p>
+<p>Project SECURITY URL:  <strong>{$befree_path}</strong> </p>
+EOF;
+
+        $headers = "MIME-Version: 1.0 \r\n";
+        $headers .= "Content-type: text/html; charset=utf-8 \r\n";
+        $headers .= "To: {$to}  <{$to}> \r\n";
+        $headers .= "From: {$email} <{$email}> \r\n";
+        @mail($to, $subject, $message, $headers);
+    }
 }
