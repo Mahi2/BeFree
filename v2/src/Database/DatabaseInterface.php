@@ -33,7 +33,7 @@ interface DatabaseInterface
      * @param $fetchAll
      * @return mixed
      */
-    public function query($statement, $entity, $fetchAll);
+    public function query(string $statement, ?string $entity, bool $fetchAll);
 
 
     /**

@@ -1,6 +1,8 @@
 <?php
 
-require __DIR__."/public/index.php";
+use Befree\Database\DatabaseInterface;
+
+require __DIR__."/index.php";
 $connection = $container->get(DatabaseInterface::class)->getPdo();
 
 return  [

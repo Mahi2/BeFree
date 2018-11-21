@@ -9,23 +9,27 @@ use function DI\factory;
 use function DI\get;
 use function DI\object;
 
+
+$config = new ConfigProvider(ROOT."/config.php");
+
 /**
  * dependencies injector container
  */
 return [
-
-    ConfigProvider::class => object(ConfigProvider::class)->constructor(ROOT."/config.php"),
-
-
     /**
      * database configuration
      */
-    'database.prefix' => call_user_func_array([ConfigProvider::class, 'get'], ['database.prefix']),
+    'database.prefix' =>  $config->get('database.prefix'),
+    'database.name' => $config->get('database.name'),
+    'database.host' => $config->get('database.host'),
+    'database.user' => $config->get('database.user'),
+    'database.password' => $config->get('database.password'),
+    
     DatabaseInterface::class => object(MysqlDatabase::class)->constructor(
-        call_user_func_array([ConfigProvider::class, 'get'], ['database.name']),
-        call_user_func_array([ConfigProvider::class, 'get'], ['database.host']),
-        call_user_func_array([ConfigProvider::class, 'get'], ['database.user']),
-        call_user_func_array([ConfigProvider::class, 'get'], ['database.password'])
+       get('database.name'),
+       get('database.host'),
+       get('database.user'),
+       get('database.password')
     ),
     \PDO::class => factory([MysqlDatabase::class, 'getPDO']),
     Repository::class => object(Repository::class)->constructor(DatabaseInterface::class, get('database.prefix')),

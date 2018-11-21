@@ -22,6 +22,7 @@ class ConfigProvider
     {
         if (file_exists($filename)) {
             $this->config = new Collection(require($filename));
+            return $this;
         } else {
             throw new \InvalidArgumentException(sprintf("the %s file doesn't exists", $filename));
         }
