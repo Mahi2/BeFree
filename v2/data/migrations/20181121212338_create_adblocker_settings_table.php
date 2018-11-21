@@ -36,12 +36,16 @@ class CreateAdblockerSettingsTable extends AbstractMigration
     {
         $prefix = (new ConfigProvider(ROOT."/config.php"))-get('database.prefix');
 
-        $this->table($prefix . 'adblocker-settings')
-            ->addColumn('detection', 'integer', [
-                'limit' => MysqlAdapter::BIT,
-                'null' => false,
-                'default' => 0,
-            ])
-            ->create();
+        $this->table($prefix . 'adblocker-settings', [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB'
+        ])
+        ->addColumn('detection', 'integer', [
+            'limit' => MysqlAdapter::BIT,
+            'null' => false,
+            'default' => 0,
+        ])
+        ->create();
     }
 }

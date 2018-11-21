@@ -2,6 +2,8 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Befree\ConfigProvider;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateBansTable extends AbstractMigration
 {
@@ -32,6 +34,43 @@ class CreateBansTable extends AbstractMigration
      */
     public function change()
     {
+        $prefix = (new ConfigProvider(ROOT."/config.php"))->get('database.prefix');
 
+        $this->table($prefix . "bans", [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB'
+        ])
+        ->addColumn('ip', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL,
+        ])
+        ->addColumn('date', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ])
+        ->addColumn('time', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL,
+        ])
+        ->addColumn('reason', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ])
+        ->addColumn('redirect', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::BIT,
+            'default' => 0
+        ])
+        ->addColumn('url', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ])
+        ->addColumn('autoban', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::BIT,
+            'default' => 0
+        ])
+        ->create();
     }
 }
