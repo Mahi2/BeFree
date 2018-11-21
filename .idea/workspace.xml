@@ -2,84 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e96ffc8-c1df-45ab-8384-d2295f7ee2e3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/v2/src/Helpers/MobileDeviceDetector.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/adblocker-detection.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/all-logs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/badbots.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bans-country.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bans-ip.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bans-other.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/blacklist-checker.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/content-protection.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dashboard.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/error-monitoring.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hashing.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/htaccess-editor.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html-encrypter.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/config.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/core.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/database.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/done.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/language/bg.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/language/de.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/language/en.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/language/es.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/language/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/languages.inc.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/settings.inc.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/settings.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/sql/database.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install/sql/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ip-whitelist.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/live-traffic.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log-details.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/login-history.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logout.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/malware-scanner.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mass-requests.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/massrequest-logs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/adblocker-detector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/badbots-protection.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/ban-system.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/content-protection.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/core.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/lib/Mobile_Detect.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/lib/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/lib/ip_details.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/lib/useragent.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/lib/useragent_detect_browser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/lib/useragent_detect_os.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/other-logs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/password-generator.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/phpconfig-check.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/phpfunctions-check.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/port-scanner.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project-security.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proxy-logs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proxy.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/settings.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/site-info.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spam.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spammer-logs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sql-injection.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sqli-logs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tor-detection.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/update-check.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/users.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/visit-analytics.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/visitor-details.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/warning-pages.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website-monitoring.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/befree.iml" afterPath="$PROJECT_DIR$/.idea/befree.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/src/Application/Actions/Action.php" afterPath="$PROJECT_DIR$/v2/src/Application/Actions/Action.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/v2/src/Application/Actions/BanSystemAction.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/src/Application/Actions/BadbotsProtectionAction.php" afterPath="$PROJECT_DIR$/v2/src/Application/Actions/BadbotsProtectionAction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/v2/src/Broadcaster.php" afterPath="$PROJECT_DIR$/v2/src/Broadcaster.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,15 +26,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Broadcaster.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v2/src/Broadcaster.php">
+      <file leaf-file-name="ban-system.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v1/modules/ban-system.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="50" column="7" lean-forward="false" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+            <state relative-caret-position="200">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="64" selection-end-column="1" />
               <folding>
-                <element signature="e#26#55#0#PHP" expanded="true" />
-                <marker date="1542786776997" expanded="true" signature="3758:3901" ph="SELECT ip, p... " />
-                <marker date="1542786776997" expanded="true" signature="4029:4467" ph="INSERT INTO `${$ltable}`... " />
+                <marker date="1542136974966" expanded="true" signature="83:129" ph="SELECT ip FR... ${$table}" />
+                <marker date="1542136974966" expanded="true" signature="404:468" ph="SELECT `coun... ${$table}" />
+                <marker date="1542136974966" expanded="true" signature="567:590" ph="SELECT * FRO... ${$table1}" />
+                <marker date="1542136974966" expanded="true" signature="654:696" ph="SELECT * FRO... ${$table2}" />
+                <marker date="1542136974966" expanded="true" signature="1682:1741" ph="SELECT count... ${$table}" />
+                <marker date="1542136974966" expanded="true" signature="2558:2609" ph="SELECT * FRO... ${$table}" />
+                <marker date="1542136974966" expanded="true" signature="3028:3074" ph="SELECT * FRO... ${$table}" />
+                <marker date="1542136974966" expanded="true" signature="3492:3539" ph="SELECT * FRO... ${$table}" />
+                <marker date="1542136974966" expanded="true" signature="3948:4000" ph="SELECT * FRO... ${$table}" />
               </folding>
             </state>
           </provider>
@@ -119,24 +49,35 @@
       <file leaf-file-name="BadbotsProtectionAction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/BadbotsProtectionAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+            <state relative-caret-position="405">
+              <caret line="1905" column="23" lean-forward="false" selection-start-line="1905" selection-start-column="23" selection-end-line="1905" selection-end-column="23" />
               <folding>
                 <element signature="e#889#44913#0#PHP" expanded="false" />
                 <element signature="e#947#44906#0#PHP" expanded="false" />
-                <element signature="e#44971#45769#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Action.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/Action.php">
+      <file leaf-file-name="AdblockerDetectorAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/AdblockerDetectorAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="311">
+              <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
               <folding>
-                <element signature="e#33#56#0#PHP" expanded="true" />
+                <element signature="e#35#87#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BanSystemAction.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/BanSystemAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="122" column="1" lean-forward="true" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+              <folding>
+                <element signature="e#34#80#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/v2/src/Auth.php" />
         <option value="$PROJECT_DIR$/v2/src/Renderer/RendererInterface.php" />
         <option value="$PROJECT_DIR$/v2/install/languages.inc.php" />
         <option value="$PROJECT_DIR$/v2/install/settings.inc.php" />
@@ -211,8 +151,9 @@
         <option value="$PROJECT_DIR$/v2/src/Helpers/IpDetails.php" />
         <option value="$PROJECT_DIR$/v2/src/Helpers/MobileDeviceDetector.php" />
         <option value="$PROJECT_DIR$/v2/src/Broadcaster.php" />
-        <option value="$PROJECT_DIR$/v2/src/Application/Actions/BadbotsProtectionAction.php" />
         <option value="$PROJECT_DIR$/v2/src/Application/Actions/Action.php" />
+        <option value="$PROJECT_DIR$/v2/src/Application/Actions/BadbotsProtectionAction.php" />
+        <option value="$PROJECT_DIR$/v2/src/Application/Actions/BanSystemAction.php" />
       </list>
     </option>
   </component>
@@ -437,12 +378,12 @@
       <updated>1542551374170</updated>
       <workItem from="1542551375727" duration="25921000" />
       <workItem from="1542742031545" duration="15129000" />
-      <workItem from="1542781407966" duration="3561000" />
+      <workItem from="1542781407966" duration="5336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44611000" />
+    <option name="totallyTimeSpent" value="46386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -505,7 +446,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/v2/install/settings.php" />
     <entry file="file://$PROJECT_DIR$/v2/install/done.php" />
     <entry file="file://$PROJECT_DIR$/v2/install/steps/layout.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -701,6 +641,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -709,16 +650,6 @@
         <state relative-caret-position="640">
           <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/AdblockerDetectorAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-          <folding>
-            <element signature="e#35#87#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -845,24 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v1/modules/ban-system.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1542136974966" expanded="true" signature="83:129" ph="SELECT ip FR... ${$table}" />
-            <marker date="1542136974966" expanded="true" signature="404:468" ph="SELECT `coun... ${$table}" />
-            <marker date="1542136974966" expanded="true" signature="567:590" ph="SELECT * FRO... ${$table1}" />
-            <marker date="1542136974966" expanded="true" signature="654:696" ph="SELECT * FRO... ${$table2}" />
-            <marker date="1542136974966" expanded="true" signature="1682:1741" ph="SELECT count... ${$table}" />
-            <marker date="1542136974966" expanded="true" signature="2558:2609" ph="SELECT * FRO... ${$table}" />
-            <marker date="1542136974966" expanded="true" signature="3028:3074" ph="SELECT * FRO... ${$table}" />
-            <marker date="1542136974966" expanded="true" signature="3492:3539" ph="SELECT * FRO... ${$table}" />
-            <marker date="1542136974966" expanded="true" signature="3948:4000" ph="SELECT * FRO... ${$table}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v1/modules/core.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-164">
@@ -943,6 +856,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/Action.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#33#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/v2/src/Broadcaster.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
@@ -957,22 +880,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/BadbotsProtectionAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        <state relative-caret-position="405">
+          <caret line="1905" column="23" lean-forward="false" selection-start-line="1905" selection-start-column="23" selection-end-line="1905" selection-end-column="23" />
           <folding>
             <element signature="e#889#44913#0#PHP" expanded="false" />
             <element signature="e#947#44906#0#PHP" expanded="false" />
-            <element signature="e#44971#45769#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/Action.php">
+    <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/AdblockerDetectorAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="311">
+          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
           <folding>
-            <element signature="e#33#56#0#PHP" expanded="true" />
+            <element signature="e#35#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v1/modules/ban-system.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="64" selection-end-column="1" />
+          <folding>
+            <marker date="1542136974966" expanded="true" signature="83:129" ph="SELECT ip FR... ${$table}" />
+            <marker date="1542136974966" expanded="true" signature="404:468" ph="SELECT `coun... ${$table}" />
+            <marker date="1542136974966" expanded="true" signature="567:590" ph="SELECT * FRO... ${$table1}" />
+            <marker date="1542136974966" expanded="true" signature="654:696" ph="SELECT * FRO... ${$table2}" />
+            <marker date="1542136974966" expanded="true" signature="1682:1741" ph="SELECT count... ${$table}" />
+            <marker date="1542136974966" expanded="true" signature="2558:2609" ph="SELECT * FRO... ${$table}" />
+            <marker date="1542136974966" expanded="true" signature="3028:3074" ph="SELECT * FRO... ${$table}" />
+            <marker date="1542136974966" expanded="true" signature="3492:3539" ph="SELECT * FRO... ${$table}" />
+            <marker date="1542136974966" expanded="true" signature="3948:4000" ph="SELECT * FRO... ${$table}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2/src/Application/Actions/BanSystemAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="122" column="1" lean-forward="true" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+          <folding>
+            <element signature="e#34#80#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1903,6 +1903,7 @@ class BadbotsProtectionAction extends Action
                 }
 
                 $this->view($this->name);
+                exit();
             }
         }
     }
