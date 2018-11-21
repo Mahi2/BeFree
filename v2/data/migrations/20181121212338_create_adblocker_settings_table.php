@@ -2,6 +2,8 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
+use Befree\ConfigProvider;
 
 class CreateAdblockerSettingsTable extends AbstractMigration
 {
@@ -32,6 +34,14 @@ class CreateAdblockerSettingsTable extends AbstractMigration
      */
     public function change()
     {
+        $prefix = (new ConfigProvider(ROOT."/config.php"))-get('database.prefix');
 
+        $this->table($prefix . 'adblocker-settings')
+            ->addColumn('detection', 'integer', [
+                'limit' => MysqlAdapter::BIT,
+                'null' => false,
+                'default' => 0,
+            ])
+            ->create();
     }
 }
