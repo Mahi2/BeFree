@@ -2,6 +2,8 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Befree\ConfigProvider;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateBansCountryTable extends AbstractMigration
 {
@@ -32,6 +34,26 @@ class CreateBansCountryTable extends AbstractMigration
      */
     public function change()
     {
+        $prefix = (new ConfigProvider(ROOT.'/config.php'))->get('database.config');
 
+        $this->table($prefix . "bans-country", [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB',
+            'COMMENT' => 'Banned countries table'
+        ])
+        ->addColumn('country', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ])
+        ->addColumn('redirect', 'integer', [
+            'null' => false,
+            'limit' => MysqlAdapter::BIT
+        ])
+        ->addColumn('url', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ])
+        ->create();
     }
 }
