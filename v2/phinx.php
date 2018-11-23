@@ -16,6 +16,7 @@ return  [
         'default_database' => 'development',
         'development' => [
             'name' => 'befree',
+            'table_prefix' => $container->get('database.prefix'),
             'connection' => $connection,
         ]
     ]

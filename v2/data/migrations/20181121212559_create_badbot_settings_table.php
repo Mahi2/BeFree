@@ -34,9 +34,7 @@ class CreateBadbotSettingsTable extends AbstractMigration
      */
     public function change()
     {
-        $prefix = (new ConfigProvider(ROOT."/config.php"))->get('database.prefix');
-
-        $this->table($prefix . "badbot-settings", [
+        $this->table("badbot-settings", [
             'COLLATE' => 'utf8_unicode_ci',
             'DEFAULT CHARSET' => 'utf8',
             'ENGINE' => 'InnoDB'
