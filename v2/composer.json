@@ -18,6 +18,8 @@
   "require": {
     "php-di/php-di": "^5.4",
     "robmorgan/phinx": "^0.10.6",
-    "twig/twig": "^2.5"
+    "twig/twig": "^2.5",
+    "guzzlehttp/guzzle": "^6.3",
+    "squizlabs/php_codesniffer": "^3.3"
   }
 }
