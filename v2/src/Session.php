@@ -56,7 +56,8 @@ class Session
      * destroy a session value
      * @param string $name
      */
-    public function destroy(string $name) {
+    public function destroy(string $name)
+    {
         if ($this->has($name)) {
             unset($_SESSION[$name]);
         }

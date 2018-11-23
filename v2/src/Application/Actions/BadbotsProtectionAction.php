@@ -2,7 +2,6 @@
 
 namespace Befree\Actions;
 
-
 use Befree\Repositories\BadbotSettingsRepository;
 use Befree\Repositories\LogsRepository;
 use DI\Container;

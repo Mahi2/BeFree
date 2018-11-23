@@ -2,7 +2,6 @@
 
 namespace Befree\Helpers;
 
-
 /**
  * Class IpDetails
  * @package Befree\Helpers

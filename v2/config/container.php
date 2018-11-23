@@ -9,7 +9,6 @@ use function DI\factory;
 use function DI\get;
 use function DI\object;
 
-
 $config = new ConfigProvider(ROOT."/config.php");
 
 /**
@@ -26,10 +25,10 @@ return [
     'database.password' => $config->get('database.password'),
     
     DatabaseInterface::class => object(MysqlDatabase::class)->constructor(
-       get('database.name'),
-       get('database.host'),
-       get('database.user'),
-       get('database.password')
+        get('database.name'),
+        get('database.host'),
+        get('database.user'),
+        get('database.password')
     ),
     \PDO::class => factory([MysqlDatabase::class, 'getPDO']),
     Repository::class => object(Repository::class)->constructor(DatabaseInterface::class, get('database.prefix')),

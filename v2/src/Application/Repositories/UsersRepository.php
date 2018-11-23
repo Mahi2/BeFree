@@ -2,7 +2,6 @@
 
 namespace Befree\Repositories;
 
-
 use Befree\Entities\UsersEntity;
 use Befree\Repository;
 
@@ -16,11 +15,11 @@ class UsersRepository extends Repository
     /**
      * @var string
      */
-    protected  $table = 'users';
+    protected $table = 'users';
 
 
     /**
      * @var UsersEntity
      */
-    protected  $entity = UsersEntity::class;
+    protected $entity = UsersEntity::class;
 }

@@ -2,7 +2,6 @@
 
 namespace Befree\Repositories;
 
-
 use Befree\Repository;
 
 /**

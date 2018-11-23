@@ -2,7 +2,6 @@
 
 namespace Befree\Router;
 
-
 class Route
 {
     /**

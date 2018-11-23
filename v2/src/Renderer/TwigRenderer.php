@@ -2,7 +2,6 @@
 
 namespace Befree\Renderer;
 
-
 /**
  * Class TwigRenderer
  * @package Befree\Renderer

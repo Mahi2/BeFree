@@ -15,7 +15,8 @@ class UserAgentFactoryPS
      * @param null $imageExtension
      * @return UserAgentPS
      */
-    public static function analyze($string, $imageSize = null, $imagePath = null, $imageExtension = null) {
+    public static function analyze($string, $imageSize = null, $imagePath = null, $imageExtension = null)
+    {
         $class = new UserAgentPS();
         $imageSize === null || $class->imageSize = $imageSize;
         $imagePath === null || $class->imagePath = $imagePath;

@@ -2,7 +2,6 @@
 
 namespace Befree\Helpers;
 
-
 use ArrayIterator;
 
 class Collection implements \IteratorAggregate, \ArrayAccess

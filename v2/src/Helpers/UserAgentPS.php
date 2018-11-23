@@ -96,14 +96,14 @@ class UserAgentPS
         } elseif ($this->_data['os']['title'] != '') {
             $this->_data['platform'] = &$this->_data['os'];
         } else {
-            $this->_data['platform'] = array(
+            $this->_data['platform'] = [
                 "link" => "#",
                 "title" => "Unknown",
                 "code" => "null",
                 "dir" => "browser",
                 "type" => "os",
                 "image" => $this->_makeImage('browser', 'null'),
-            );
+            ];
         }
     }
 
@@ -114,7 +114,7 @@ class UserAgentPS
     public function analyze($string)
     {
         $this->_data['useragent'] = $string;
-        $classList = array("os", "browser");
+        $classList = ["os", "browser"];
         foreach ($classList as $value) {
             $class = "useragent_detect_" . $value;
 

@@ -2,7 +2,6 @@
 
 namespace Befree\Http;
 
-
 trait RequestAwareTrait
 {
     /**

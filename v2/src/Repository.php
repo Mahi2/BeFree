@@ -1,7 +1,6 @@
 <?php
 namespace Befree;
 
-
 use Befree\Database\DatabaseInterface;
 
 /**

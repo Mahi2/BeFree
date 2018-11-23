@@ -1,7 +1,6 @@
 <?php
 namespace Befree;
 
-
 use Befree\Helpers\IpDetails;
 use Befree\Helpers\UserAgentFactoryPS;
 use Befree\Http\RequestAwareTrait;

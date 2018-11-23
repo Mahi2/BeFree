@@ -20,9 +20,9 @@ $container = $container->build();
 $app = new Befree($container);
 
 if ($app->isInstalled()) {
-   if (php_sapi_name() !== 'cli') {
-       $app->run();
-   }
+    if (php_sapi_name() !== 'cli') {
+        $app->run();
+    }
 } else {
     $app->redirect('install/index.php', 403);
 }

@@ -2,7 +2,6 @@
 
 namespace Befree\Actions;
 
-
 use Befree\Repositories\AdblockerSettingsRepository;
 use DI\Container;
 
@@ -46,5 +45,4 @@ class AdblockerDetectorAction extends Action
         $redirect = $this->settings->redirect;
         echo $this->javascript($this->name);
     }
-
 }

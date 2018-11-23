@@ -2,7 +2,6 @@
 
 namespace Befree\Router;
 
-
 use Befree\Http\RequestAwareTrait;
 
 trait RouterAwareTrait

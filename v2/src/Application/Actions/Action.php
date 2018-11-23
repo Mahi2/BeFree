@@ -1,6 +1,7 @@
 <?php
 
 namespace Befree\Actions;
+
 use Befree\Broadcaster;
 use Befree\Renderer\TwigRenderer;
 use Befree\Repositories\SettingsRepository;

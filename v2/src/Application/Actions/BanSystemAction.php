@@ -8,7 +8,6 @@ use Befree\Repositories\BansRepository;
 use Befree\Repositories\SettingsRepository;
 use DI\Container;
 
-
 /**
  * Class BanSystemAction
  * @package Befree\Actions
@@ -88,7 +87,6 @@ class BanSystemAction extends Action
             $ip_data = @json_decode($ipcontent);
             $country_check = $ip_data->{'country'} ?? "Unknown";
             $isp_check     = $ip_data->{'isp'} ?? "Unknown";
-
         } else {
             @$isp_check = "Unknown";
             @$country_check = "Unknown";
@@ -99,7 +97,7 @@ class BanSystemAction extends Action
                 $this->view($this->name, ['page' => 'banned-country']);
                 exit();
             }
-        }  else {
+        } else {
             if (strpos(strtolower($useragent), "googlebot")
                 == false || strpos(strtolower($useragent), "bingbot")
                 == false || strpos(strtolower($useragent), "yahoo! slurp")
@@ -119,5 +117,4 @@ class BanSystemAction extends Action
     {
         $this->blockingCountry();
     }
-
 }

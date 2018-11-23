@@ -1,6 +1,7 @@
 <?php
 
 namespace Befree\Database;
+
 use PDO;
 use PDOException;
 

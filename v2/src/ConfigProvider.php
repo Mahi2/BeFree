@@ -2,7 +2,6 @@
 
 namespace Befree;
 
-
 use Befree\Helpers\Collection;
 
 class ConfigProvider
@@ -47,5 +46,4 @@ class ConfigProvider
     {
         return $this->config->get($key);
     }
-
 }
