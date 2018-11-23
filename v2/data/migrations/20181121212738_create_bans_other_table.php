@@ -2,6 +2,7 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateBansOtherTable extends AbstractMigration
 {
@@ -32,6 +33,23 @@ class CreateBansOtherTable extends AbstractMigration
      */
     public function change()
     {
+        $prefix = (new ConfigProvider(ROOT.'/config.php'))->get('database.prefix');
 
+        $this->table($prefix . "bans-other", [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB',
+            'COMMENT' => 'Banned countries table'
+        ])
+        ->addColumn('type', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL,
+
+        ])
+        ->addColumn('value', 'string', [
+            'null' => false,
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ])
+        ->create();
     }
 }
