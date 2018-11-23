@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<ruleset name="NgFrame">
+    <description>NgFrame fromattage du code</description>
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <file>src</file>
+    <file>config</file>
+    <file>index.php</file>
+
+    <rule ref="PSR2">
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+    </rule>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="Squiz.Classes.ValidClassName"/>
+    <rule ref="Generic.Files.ByteOrderMark"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag.EchoFound">
+        <severity>0</severity>
+    </rule>
+</ruleset>
