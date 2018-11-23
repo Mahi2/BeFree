@@ -2,6 +2,7 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateContentProtectionTable extends AbstractMigration
 {
@@ -32,6 +33,29 @@ class CreateContentProtectionTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('content-protection', [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB'
+        ])
+        ->addColumn('function', 'string', [
+            'limit' => MysqlAdapter::TEXT_SMALL,
+            'null' => false
+        ])
+        ->addColumn('enabled', 'integer', [
+            'limit' => MysqlAdapter::BIT,
+            'null' => false,
+            'default' => 0
+        ])
+        ->addColumn('alert', 'integer', [
+            'limit' => MysqlAdapter::BIT,
+            'null' => false,
+            'default' => 1,
+        ])
+        ->addColumn('message', 'string', [
+            'limit' => MysqlAdapter::TEXT_SMALL,
+            'null' => false
+        ])
+        ->create();
     }
 }
