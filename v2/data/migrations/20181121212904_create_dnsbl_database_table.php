@@ -2,6 +2,7 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateDnsblDatabaseTable extends AbstractMigration
 {
@@ -32,6 +33,15 @@ class CreateDnsblDatabaseTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('dnsbl-database', [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB'
+        ])
+        ->addColumn('database', 'string', [
+            'limit' => MysqlAdapter::TEXT_SMALL,
+            'null' => false
+        ])
+        ->create();
     }
 }
