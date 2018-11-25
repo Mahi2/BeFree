@@ -2,6 +2,7 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateLoginsTable extends AbstractMigration
 {
@@ -32,6 +33,12 @@ class CreateLoginsTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('logins')
+            ->addColumn('username', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('ip', 'string', ['limit' => 15])
+            ->addColumn('date', 'string', ['limit' => 30])
+            ->addColumn('time', 'string', ['limit' => 5])
+            ->addColumn('successful', 'integer', ['limit' => 1])
+            ->create();
     }
 }
