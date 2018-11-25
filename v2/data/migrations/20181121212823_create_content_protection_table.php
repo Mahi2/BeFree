@@ -33,11 +33,7 @@ class CreateContentProtectionTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table('content-protection', [
-            'COLLATE' => 'utf8_unicode_ci',
-            'DEFAULT CHARSET' => 'utf8',
-            'ENGINE' => 'InnoDB'
-        ])
+        $this->table('content-protection')
             ->addColumn('function', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->addColumn('enabled', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
             ->addColumn('alert', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])

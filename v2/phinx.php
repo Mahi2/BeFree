@@ -18,6 +18,8 @@ return  [
             'name' => 'befree',
             'table_prefix' => $container->get('database.prefix'),
             'connection' => $connection,
+            'collation' => 'utf8_unicode_ci',
+            'charset' => 'utf8',
         ]
     ]
 ];

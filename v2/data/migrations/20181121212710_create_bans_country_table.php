@@ -34,12 +34,7 @@ class CreateBansCountryTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table("bans-country", [
-            'COLLATE' => 'utf8_unicode_ci',
-            'DEFAULT CHARSET' => 'utf8',
-            'ENGINE' => 'InnoDB',
-            'COMMENT' => 'Banned countries table'
-        ])
+        $this->table("bans-country")
             ->addColumn('country', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->addColumn('redirect', 'integer', ['limit' => MysqlAdapter::BIT])
             ->addColumn('url', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])

@@ -34,11 +34,7 @@ class CreateAdblockerSettingsTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table('adblocker-settings', [
-            'COLLATE' => 'utf8_unicode_ci',
-            'DEFAULT CHARSET' => 'utf8',
-            'ENGINE' => 'InnoDB'
-        ])
+        $this->table('adblocker-settings')
             ->addColumn('detection', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
             ->create();
     }

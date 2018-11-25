@@ -34,11 +34,7 @@ class CreateBadbotSettingsTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table("badbot-settings", [
-            'COLLATE' => 'utf8_unicode_ci',
-            'DEFAULT CHARSET' => 'utf8',
-            'ENGINE' => 'InnoDB'
-        ])
+        $this->table("badbot-settings")
             ->addColumn('protection', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
             ->addColumn('protection2', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
             ->addColumn('protection3', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])

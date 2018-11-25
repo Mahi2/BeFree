@@ -34,11 +34,7 @@ class CreateBansTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table("bans", [
-            'COLLATE' => 'utf8_unicode_ci',
-            'DEFAULT CHARSET' => 'utf8',
-            'ENGINE' => 'InnoDB'
-        ])
+        $this->table("bans")
             ->addColumn('ip', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->addColumn('date', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->addColumn('time', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
