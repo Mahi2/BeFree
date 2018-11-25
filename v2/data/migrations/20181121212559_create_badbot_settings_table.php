@@ -39,36 +39,12 @@ class CreateBadbotSettingsTable extends AbstractMigration
             'DEFAULT CHARSET' => 'utf8',
             'ENGINE' => 'InnoDB'
         ])
-        ->addColumn('protection', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 1
-        ])
-        ->addColumn('protection2', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 1
-        ])
-        ->addColumn('protection3', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 1
-        ])
-        ->addColumn('logging', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 1
-        ])
-        ->addColumn('autoban', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 0
-        ])
-        ->addColumn('mail', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 0
-        ])
-        ->create();
+            ->addColumn('protection', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
+            ->addColumn('protection2', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
+            ->addColumn('protection3', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
+            ->addColumn('logging', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
+            ->addColumn('autoban', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('mail', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->create();
     }
 }

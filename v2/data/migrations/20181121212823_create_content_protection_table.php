@@ -38,24 +38,10 @@ class CreateContentProtectionTable extends AbstractMigration
             'DEFAULT CHARSET' => 'utf8',
             'ENGINE' => 'InnoDB'
         ])
-        ->addColumn('function', 'string', [
-            'limit' => MysqlAdapter::TEXT_SMALL,
-            'null' => false
-        ])
-        ->addColumn('enabled', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 0
-        ])
-        ->addColumn('alert', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 1,
-        ])
-        ->addColumn('message', 'string', [
-            'limit' => MysqlAdapter::TEXT_SMALL,
-            'null' => false
-        ])
-        ->create();
+            ->addColumn('function', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('enabled', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('alert', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
+            ->addColumn('message', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->create();
     }
 }

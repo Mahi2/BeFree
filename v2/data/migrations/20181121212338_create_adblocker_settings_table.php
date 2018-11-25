@@ -39,11 +39,7 @@ class CreateAdblockerSettingsTable extends AbstractMigration
             'DEFAULT CHARSET' => 'utf8',
             'ENGINE' => 'InnoDB'
         ])
-        ->addColumn('detection', 'integer', [
-            'limit' => MysqlAdapter::BIT,
-            'null' => false,
-            'default' => 0,
-        ])
-        ->create();
+            ->addColumn('detection', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->create();
     }
 }

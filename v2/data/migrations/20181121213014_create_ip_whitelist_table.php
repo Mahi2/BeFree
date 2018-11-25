@@ -39,9 +39,7 @@ class CreateIpWhitelistTable extends AbstractMigration
             'ENGINE' => 'InnoDB'
         ])
         ->addColumn('ip', 'string', ['limit' => 15])
-        ->addColumn('notes', 'string', [
-            'limit' => MysqlAdapter::TEXT_SMALL
-        ]);
+        ->addColumn('notes', 'string', ['limit' => MysqlAdapter::TEXT_SMALL]);
 
     }
 }

@@ -38,10 +38,7 @@ class CreateDnsblDatabaseTable extends AbstractMigration
             'DEFAULT CHARSET' => 'utf8',
             'ENGINE' => 'InnoDB'
         ])
-        ->addColumn('database', 'string', [
-            'limit' => MysqlAdapter::TEXT_SMALL,
-            'null' => false
-        ])
+        ->addColumn('database', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
         ->create();
     }
 }

@@ -40,18 +40,9 @@ class CreateBansCountryTable extends AbstractMigration
             'ENGINE' => 'InnoDB',
             'COMMENT' => 'Banned countries table'
         ])
-        ->addColumn('country', 'string', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL
-        ])
-        ->addColumn('redirect', 'integer', [
-            'null' => false,
-            'limit' => MysqlAdapter::BIT
-        ])
-        ->addColumn('url', 'string', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL
-        ])
-        ->create();
+            ->addColumn('country', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('redirect', 'integer', ['limit' => MysqlAdapter::BIT])
+            ->addColumn('url', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->create();
     }
 }

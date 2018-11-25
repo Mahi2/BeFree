@@ -39,36 +39,13 @@ class CreateBansTable extends AbstractMigration
             'DEFAULT CHARSET' => 'utf8',
             'ENGINE' => 'InnoDB'
         ])
-        ->addColumn('ip', 'string', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL,
-        ])
-        ->addColumn('date', 'string', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL
-        ])
-        ->addColumn('time', 'string', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL,
-        ])
-        ->addColumn('reason', 'integer', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL
-        ])
-        ->addColumn('redirect', 'integer', [
-            'null' => false,
-            'limit' => MysqlAdapter::BIT,
-            'default' => 0
-        ])
-        ->addColumn('url', 'integer', [
-            'null' => false,
-            'limit' => MysqlAdapter::TEXT_SMALL
-        ])
-        ->addColumn('autoban', 'integer', [
-            'null' => false,
-            'limit' => MysqlAdapter::BIT,
-            'default' => 0
-        ])
-        ->create();
+            ->addColumn('ip', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('date', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('time', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('reason', 'integer', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('redirect', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('url', 'integer', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('autoban', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->create();
     }
 }
