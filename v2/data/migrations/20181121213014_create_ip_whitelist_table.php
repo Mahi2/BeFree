@@ -2,6 +2,7 @@
 
 
 use Phinx\Migration\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateIpWhitelistTable extends AbstractMigration
 {
@@ -32,6 +33,15 @@ class CreateIpWhitelistTable extends AbstractMigration
      */
     public function change()
     {
+        $this->table('ip-whitelist', [
+            'COLLATE' => 'utf8_unicode_ci',
+            'DEFAULT CHARSET' => 'utf8',
+            'ENGINE' => 'InnoDB'
+        ])
+        ->addColumn('ip', 'string', ['limit' => 15])
+        ->addColumn('notes', 'string', [
+            'limit' => MysqlAdapter::TEXT_SMALL
+        ]);
 
     }
 }
