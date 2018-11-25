@@ -34,9 +34,9 @@ class CreateContentProtectionTable extends AbstractMigration
     public function change()
     {
         $this->table('content-protection')
-            ->addColumn('function', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
-            ->addColumn('enabled', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
-            ->addColumn('alert', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
+            ->addColumn('function', 'string', ['limit' => 30])
+            ->addColumn('enabled', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('alert', 'integer', ['limit' => 1, 'default' => 1])
             ->addColumn('message', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->create();
     }

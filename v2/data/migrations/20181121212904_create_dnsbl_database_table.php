@@ -34,7 +34,7 @@ class CreateDnsblDatabaseTable extends AbstractMigration
     public function change()
     {
         $this->table('dnsbl-database')
-            ->addColumn('database', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('database', 'string', ['limit' => 30])
             ->create();
     }
 }

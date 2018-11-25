@@ -35,13 +35,13 @@ class CreateBansTable extends AbstractMigration
     public function change()
     {
         $this->table("bans")
-            ->addColumn('ip', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
-            ->addColumn('date', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
-            ->addColumn('time', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('ip', 'string', ['limit' => 15])
+            ->addColumn('date', 'string', ['limit' => 30])
+            ->addColumn('time', 'string', ['limit' => 5])
             ->addColumn('reason', 'integer', ['limit' => MysqlAdapter::TEXT_SMALL])
-            ->addColumn('redirect', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('redirect', 'integer', ['limit' => 1, 'default' => 0])
             ->addColumn('url', 'integer', ['limit' => MysqlAdapter::TEXT_SMALL])
-            ->addColumn('autoban', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('autoban', 'integer', ['limit' => 1, 'default' => 0])
             ->create();
     }
 }

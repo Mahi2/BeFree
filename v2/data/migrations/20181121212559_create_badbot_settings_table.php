@@ -35,12 +35,12 @@ class CreateBadbotSettingsTable extends AbstractMigration
     public function change()
     {
         $this->table("badbot-settings")
-            ->addColumn('protection', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
-            ->addColumn('protection2', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
-            ->addColumn('protection3', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
-            ->addColumn('logging', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 1])
-            ->addColumn('autoban', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
-            ->addColumn('mail', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('protection', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('protection2', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('protection3', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('logging', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('autoban', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('mail', 'integer', ['limit' => 1, 'default' => 0])
             ->create();
     }
 }

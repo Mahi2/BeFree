@@ -35,8 +35,8 @@ class CreateBansCountryTable extends AbstractMigration
     public function change()
     {
         $this->table("bans-country")
-            ->addColumn('country', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
-            ->addColumn('redirect', 'integer', ['limit' => MysqlAdapter::BIT])
+            ->addColumn('country', 'string', ['limit' => 120])
+            ->addColumn('redirect', 'integer', ['limit' => 1])
             ->addColumn('url', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->create();
     }

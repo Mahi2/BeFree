@@ -35,7 +35,7 @@ class CreateAdblockerSettingsTable extends AbstractMigration
     public function change()
     {
         $this->table('adblocker-settings')
-            ->addColumn('detection', 'integer', ['limit' => MysqlAdapter::BIT, 'default' => 0])
+            ->addColumn('detection', 'integer', ['limit' => 1, 'default' => 0])
             ->create();
     }
 }

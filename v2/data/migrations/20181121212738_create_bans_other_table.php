@@ -34,7 +34,7 @@ class CreateBansOtherTable extends AbstractMigration
     public function change()
     {
         $this->table("bans-other")
-            ->addColumn('type', 'string', [ 'limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('type', 'string', [ 'limit' => 40])
             ->addColumn('value', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
             ->create();
     }
