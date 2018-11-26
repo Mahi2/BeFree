@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreatePagesLayoltTable extends AbstractMigration
@@ -32,6 +33,9 @@ class CreatePagesLayoltTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('pages-layolt')
+            ->addColumn('page', 'string', ['limit' => 30])
+            ->addColumn('text', 'string', ['limit' => MysqlAdapter::TEXT_LONG])
+            ->create();
     }
 }
