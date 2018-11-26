@@ -15,6 +15,12 @@ class AdblockerSettingsTableSeeder extends AbstractSeed
      */
     public function run()
     {
-
+        $this->table('adblocker-settings')
+            ->insert([
+                'id' => 1,
+                'detection' => 0,
+                'redirect' => 'pages/adblocker-detected.php'
+            ])
+            ->save();
     }
 }
