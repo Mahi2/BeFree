@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreateMonitoringTable extends AbstractMigration
@@ -32,6 +33,9 @@ class CreateMonitoringTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('monitoring')
+            ->addColumn('url', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('notes', 'string', ['limit' => MysqlAdapter::TEXT_LONG])
+            ->create();
     }
 }
