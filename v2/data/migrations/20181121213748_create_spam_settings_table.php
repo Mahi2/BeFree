@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreateSpamSettingsTable extends AbstractMigration
@@ -32,6 +33,13 @@ class CreateSpamSettingsTable extends AbstractMigration
      */
     public function change()
     {
+        $this->table('spam-settigns')
+            ->addColumn('protection', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('logging', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('redirect', 'string', ['limit' => MysqlAdapter::TEXT_SMALL, 'default' => 'pages/spammer.php'])
+            ->addColumn('autoban', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('mail', 'integer', ['limit' => 1, 'default' => 0])
+            ->create();
 
     }
 }
