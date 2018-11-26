@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreateUsersTable extends AbstractMigration
@@ -32,6 +33,9 @@ class CreateUsersTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('users')
+            ->addColumn('username', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('password', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->create();
     }
 }
