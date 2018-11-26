@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreateProxySettingsTable extends AbstractMigration
@@ -32,6 +33,15 @@ class CreateProxySettingsTable extends AbstractMigration
      */
     public function change()
     {
+        $this->table('proxy-settings')
+            ->addColumn('protection', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('protection2', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('protection3', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('logging', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('autoban', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('redirect', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->addColumn('mail', 'integer', ['limit' => 1, 'default' => 0])
+            ->create();
 
     }
 }
