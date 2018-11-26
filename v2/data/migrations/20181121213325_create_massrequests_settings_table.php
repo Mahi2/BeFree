@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreateMassrequestsSettingsTable extends AbstractMigration
@@ -32,6 +33,12 @@ class CreateMassrequestsSettingsTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('massrequests-settings')
+            ->addColumn('protection', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('logging', 'integer', ['limit' => 1, 'default' => 1])
+            ->addColumn('autoban', 'integer', ['limit' => 1, 'default' => 0])
+            ->addColumn('redirect', 'string', ['limit' => MysqlAdapter::TEXT_SMALL, 'default' => 'pages/mass-requests.php' ])
+            ->addColumn('mail', 'integer', ['limit' => 1, 'default' => 0])
+            ->create();
     }
 }
