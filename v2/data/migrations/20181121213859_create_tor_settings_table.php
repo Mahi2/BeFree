@@ -1,6 +1,7 @@
 <?php
 
 
+use Phinx\Db\Adapter\MysqlAdapter;
 use Phinx\Migration\AbstractMigration;
 
 class CreateTorSettingsTable extends AbstractMigration
@@ -32,6 +33,12 @@ class CreateTorSettingsTable extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('tor-settings')
+            ->addColumn('protection', 'integer',  ['limit' => 1, 'default' => 1])
+            ->addColumn('logging', 'integer',  ['limit' => 1, 'default' => 1])
+            ->addColumn('redirect', 'string', ['limit' => MysqlAdapter::TEXT_SMALL, 'default' => 'pages/tor-detected.php'])
+            ->addColumn('autoban', 'integer',  ['limit' => 1, 'default' => 0])
+            ->addColumn('mail', 'integer',  ['limit' => 1, 'default' => 0])
+            ->create();
     }
 }
