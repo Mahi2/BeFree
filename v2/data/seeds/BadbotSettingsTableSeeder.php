@@ -15,6 +15,16 @@ class BadbotSettingsTableSeeder extends AbstractSeed
      */
     public function run()
     {
-
+        $this->table('badbot-settings')
+            ->insert([
+                'id' => 1,
+                'protection' => 1,
+                'protection2' => 1,
+                'protection3' => 1,
+                'logging' => 1,
+                'autoban' => 0,
+                'mail' => 0
+            ])
+            ->save();
     }
 }
