@@ -2,6 +2,9 @@
 
 namespace Befree\Helpers;
 
+use GuzzleHttp\Client;
+
+
 /**
  * Class IpDetails
  * @package Befree\Helpers
@@ -16,19 +19,9 @@ class IpDetails
      */
     public function __construct(string $ip, $useragent)
     {
-        $url = "http://extreme-ip-lookup.com/json/{$ip}";
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_setopt($ch, CURLOPT_ENCODING, 'gzip,deflate');
-        curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
-        curl_setopt($ch, CURLOPT_REFERER, "https://google.com");
-        $ipContent = curl_exec($ch);
-        curl_close($ch);
-
+        $api = new Client();
+        $ipContent = $api->get("http://extreme-ip-lookup.com/json/{$ip}");
         $ip_data = @json_decode($ipContent);
         return [
             'country'      => $ip_data->{'country'} ?? "Unknown",
