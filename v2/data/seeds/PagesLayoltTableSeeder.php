@@ -37,6 +37,6 @@ class PagesLayoltTableSeeder extends AbstractSeed
         foreach ($data as $k => $v) {
             $table->insert($data[$k]);
         }
-
+        $table->save();
     }
 }
