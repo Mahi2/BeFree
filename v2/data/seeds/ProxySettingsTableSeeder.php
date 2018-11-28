@@ -15,6 +15,8 @@ class ProxySettingsTableSeeder extends AbstractSeed
      */
     public function run()
     {
-
+        $this->table('proxy-settings')
+            ->insert([1, 0, 0, 0, 1, 0, 'pages/proxy.php', 0])
+            ->save();
     }
 }
