@@ -35,7 +35,8 @@ class CreateIpWhitelistTable extends AbstractMigration
     {
         $this->table('ip-whitelist')
             ->addColumn('ip', 'string', ['limit' => 15])
-            ->addColumn('notes', 'string', ['limit' => MysqlAdapter::TEXT_SMALL]);
+            ->addColumn('notes', 'string', ['limit' => MysqlAdapter::TEXT_SMALL])
+            ->create();
 
     }
 }
