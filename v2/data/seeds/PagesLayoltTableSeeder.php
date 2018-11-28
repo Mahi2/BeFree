@@ -32,10 +32,11 @@ class PagesLayoltTableSeeder extends AbstractSeed
             [14, 'Tor', 'We detected that you are using Tor'],
             [15, 'AdBlocker', 'AdBlocker detected. Please support this website by disabling your AdBlocker']
         ];
-
+        $field = ['id', 'page', 'text'];
         $table = $this->table('pages-layolt');
-        for ($i = 0; $i < count($data); $i++) {
-            $table->insert($data[$i]);
+
+        foreach ($data as $d) {
+            $table->insert(array_combine($field, $d));
         }
         $table->save();
     }

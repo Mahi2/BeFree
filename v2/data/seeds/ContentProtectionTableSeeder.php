@@ -29,10 +29,11 @@ class ContentProtectionTableSeeder extends AbstractSeed
             [11, 'iframe_out', 0, 0, ''],
             [12, 'selecting', 0, 0, '']
         ];
-
+        $field = ['id', 'function', 'enabled', 'alert', 'message'];
         $table = $this->table('content-protection');
-        for ($i = 0; $i < count($data); $i++) {
-            $table->insert($data[$i]);
+
+        foreach ($data as $d) {
+           $table->insert(array_combine($field, $d));
         }
         $table->save();
     }

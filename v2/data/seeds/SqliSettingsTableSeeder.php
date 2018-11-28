@@ -16,7 +16,21 @@ class SqliSettingsTableSeeder extends AbstractSeed
     public function run()
     {
         $this->table('sqli-settings')
-            ->insert([1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 'pages/blocked.php', 0, 0])
+            ->insert([
+                'id' => 1,
+                'protection' => 1,
+                'protection2' => 1,
+                'protection3' => 1,
+                'protection4' => 1,
+                'protection5' => 0,
+                'protection6' => 1,
+                'protection7' => 0,
+                'protection8' => 0,
+                'logging' => 1,
+                'redirect' => 'pages/blocked.php',
+                'autoban' => 0,
+                'mail' => 0
+            ])
             ->save();
     }
 }

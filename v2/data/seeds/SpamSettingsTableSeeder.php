@@ -16,7 +16,14 @@ class SpamSettingsTableSeeder extends AbstractSeed
     public function run()
     {
         $this->table('spam-settings')
-            ->insert([1, 0, 1, 'pages/spammer.php', 0, 0])
+            ->insert([
+                'id' => 1,
+                'protection' => 0,
+                'logging' => 1,
+                'redirect' => 'pages/spammer.php',
+                'autoban' => 0,
+                'mail' => 0
+            ])
             ->save();
     }
 }

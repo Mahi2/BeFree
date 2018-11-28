@@ -33,7 +33,7 @@ class CreateSpamSettingsTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table('spam-settigns')
+        $this->table('spam-settings')
             ->addColumn('protection', 'integer', ['limit' => 1, 'default' => 0])
             ->addColumn('logging', 'integer', ['limit' => 1, 'default' => 1])
             ->addColumn('redirect', 'string', ['limit' => MysqlAdapter::TEXT_SMALL, 'default' => 'pages/spammer.php'])

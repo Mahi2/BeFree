@@ -16,7 +16,20 @@ class SettingsTableSeeder extends AbstractSeed
     public function run()
     {
         $this->table('settings')
-            ->insert([1, 'admin@mail.com', 1, 1, 0, 1, 0, 0, 5, 0, 0, 0])
+            ->insert([
+                'id' => 1,
+                'email' => 'admin@mail.com',
+                'realtime_protection' => 1,
+                'mail_notifications' => 1,
+                'ip_detection' => 0,
+                'countryban_blacklist' => 1,
+                'live_traffic' => 0,
+                'jquery_include' => 0,
+                'error_reporting' => 5,
+                'display_errors' => 0,
+                'fixed_layout' => 0,
+                'boxed_layout' => 0
+            ])
             ->save();
     }
 }

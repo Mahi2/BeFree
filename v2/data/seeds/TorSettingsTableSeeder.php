@@ -16,7 +16,14 @@ class TorSettingsTableSeeder extends AbstractSeed
     public function run()
     {
         $this->table('tor-settings')
-            ->insert([1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 'pages/blocked.php', 0, 0])
+            ->insert([
+                'id' => 1,
+               'protection' => 1,
+                'logging' => 1,
+                'redirect' => 'pages/tor-detected.php',
+                'autoban' => 0,
+                'mail' => 1
+            ])
             ->save();
     }
 }

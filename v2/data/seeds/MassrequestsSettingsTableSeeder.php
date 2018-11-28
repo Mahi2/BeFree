@@ -16,7 +16,14 @@ class MassrequestsSettingsTableSeeder extends AbstractSeed
     public function run()
     {
         $this->table('massrequests-settings')
-            ->insert([1, 0, 1, 0, 'pages/mass-requests.php', 0])
+            ->insert([
+                'id' => 1,
+                'protection' => 0,
+                'logging' => 1,
+                'autoban' => 0,
+                'redirect' => 'pages/mass-requests.php',
+                'mail' => 0
+            ])
             ->save();
     }
 }
