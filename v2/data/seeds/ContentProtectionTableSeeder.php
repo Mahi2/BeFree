@@ -31,8 +31,8 @@ class ContentProtectionTableSeeder extends AbstractSeed
         ];
 
         $table = $this->table('content-protection');
-        foreach($data as $k => $v) {
-            $table->insert($data[$k]);
+        for ($i = 0; $i < count($data); $i++) {
+            $table->insert($data[$i]);
         }
         $table->save();
     }
