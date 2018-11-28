@@ -15,6 +15,14 @@ class DnsblDatabaseTableSeeder extends AbstractSeed
      */
     public function run()
     {
+        $data = [
+            [1, 'sbl.spamhaus.org'],
+            [2, 'xbl.spamhaus.org']
+        ];
 
+        $table = $this->table('dnsbl-database');
+        foreach($data as $k => $v) {
+            $table->insert($data[$k]);
+        }
     }
 }
