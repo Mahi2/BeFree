@@ -5,7 +5,7 @@ return [
         "user" => "root",
         "password" => "",
         "name" => "befree",
-        "prefix" => "",
+        "prefix" => "testprefix_",
     ],
     
     "site_url" => "<SITE_URL>",
