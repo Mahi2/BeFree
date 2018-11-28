@@ -2,8 +2,7 @@
 
 
 use Phinx\Migration\AbstractMigration;
-use Phinx\Db\Adapter\MysqlAdapter;
-use Befree\ConfigProvider;
+
 
 class CreateAdblockerSettingsTable extends AbstractMigration
 {

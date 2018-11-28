@@ -2,7 +2,6 @@
 
 
 use Phinx\Migration\AbstractMigration;
-use Befree\ConfigProvider;
 use Phinx\Db\Adapter\MysqlAdapter;
 
 class CreateBansTable extends AbstractMigration
