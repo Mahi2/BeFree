@@ -3,3 +3,4 @@ vendor
 composer.lock
 views/__cache__
 config.php
+data/logs
