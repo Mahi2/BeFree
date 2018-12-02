@@ -64,6 +64,8 @@ trait RouterAwareTrait
             }
         } else {
             $url = SITE_URL . "/{$url}";
+
+            die($url);
             http_response_code($status);
             header("Location: {$url}");
             exit();
