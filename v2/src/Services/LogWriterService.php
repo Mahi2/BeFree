@@ -25,7 +25,7 @@ class LogWriterService
      * the directory name format
      * @var string
      */
-    private $logDirectoryNameFormat = "Y-m";
+    private $logDirectoryNameFormat = "Y-F";
 
 
     /**
@@ -119,7 +119,7 @@ class LogWriterService
      */
     public function setFileHeader(): string
     {
-        $author = "bernard ng <nganduberanrd@gmail.com>";
+        $author = "bernard ng <ngandubernard@gmail.com>";
         $generateAt = date("Y-m-d", time());
         $header = <<< EOF
 #----------------------------------------------------------------
