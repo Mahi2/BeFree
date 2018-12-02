@@ -99,6 +99,7 @@ switch ($step) {
                 'database_name',
                 'database_username',
                 'database_password',
+                'alert_message',
                 'table_prefix',
                 '_SESSION',
                 '_POST'
