@@ -5,6 +5,7 @@ use Befree\Database\MysqlDatabase;
 use Befree\Renderer\RendererInterface;
 use Befree\Renderer\TwigRenderer;
 use Befree\Repository;
+use Befree\Services\ErrorHandlerService;
 use function DI\factory;
 use function DI\get;
 use function DI\object;
@@ -34,7 +35,8 @@ return [
     Repository::class => object(Repository::class)->constructor(DatabaseInterface::class, get('database.prefix')),
 
     /**
-     * Renderer view configuration
+     * Renderer view configuration and other configuration
      */
     RendererInterface::class => object(TwigRenderer::class),
+    ErrorHandlerService::class => object(ErrorHandlerService::class)->constructor(LOGFILES_PATH),
 ];
