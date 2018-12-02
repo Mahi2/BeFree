@@ -1,4 +1,6 @@
 <?php
+
+require(dirname(__DIR__).'/config/constants.php');
 require(ROOT . "/vendor/autoload.php");
 
 /**
@@ -16,7 +18,7 @@ define("CONFIG_FILE_TEMPLATE", "config.tpl");
  * longuage and start the befree-session
  */
 if (file_exists(CONFIG_FILE_NAME)) {
-    header("Location: ../index.php", true, 403);
+    header("Location:" . BEFREE_URL . "/index.php", true, 403);
     exit();
 } else {
     if (session_status() === PHP_SESSION_NONE) {
@@ -39,17 +41,19 @@ if (file_exists(CONFIG_FILE_NAME)) {
      * @param string $key
      * @return string
      */
-    function _lang(string $key): string {
+    function _lang(string $key): string
+    {
         global $arrLang;
         return $arrLang[$key] ?? str_replace("_", " ", $key);
     }
 
     $twig = new Twig_Environment(new Twig_Loader_Filesystem(__DIR__ . "/steps", ROOT), [
-        'cache' => RENDERER_CACHE_PATH
+        'cache' => RENDERER_CACHE_PATH,
     ]);
-    $twig->addFunction(new Twig_Function('_lang', _lang($key)));
+    $twig->addFunction(new Twig_Function('_lang', function (string $key): string {
+        return _lang($key);
+    }));
 }
-
 
 /**
  * the step in the installation of befree
@@ -159,7 +163,7 @@ switch ($step) {
             $config_file = str_replace("<DB_PASSWORD>", $database_password, $config_file);
             $config_file = str_replace("<DB_PREFIX>", $table_prefix, $config_file);
             $config_file = str_replace("<PROJECTSECURITY_PATH>", $projectsecurity_path, $config_file);
-            $config_file = str_replace("<SITE_URL>", $site_url, $config_file);
+            $config_file = str_replace("<BEFREE_URL>", $site_url, $config_file);
 
             $link = new mysqli($database_host, $database_username, $database_password, $database_name);
             $table = $table_prefix . 'users';
