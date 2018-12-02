@@ -24,5 +24,5 @@ if ($app->isInstalled()) {
         $app->run();
     }
 } else {
-    $app->redirect('/install/index.php', 403);
+    $app->redirect('install/index.php', 403);
 }
