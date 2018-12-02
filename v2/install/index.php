@@ -48,7 +48,7 @@ if (file_exists(CONFIG_FILE_NAME)) {
     }
 
     $twig = new Twig_Environment(new Twig_Loader_Filesystem(__DIR__ . "/steps", ROOT), [
-        'cache' => RENDERER_CACHE_PATH,
+        'cache' => (ENV == 'production') ? RENDERER_CACHE_PATH : false
     ]);
     $twig->addFunction(new Twig_Function('_lang', function (string $key): string {
         return _lang($key);
