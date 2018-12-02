@@ -5,3 +5,4 @@ define('ROOT', dirname(__DIR__));
 define('ENV', 'development');
 define('RENDERER_CACHE_PATH', dirname(__DIR__) . "/views/__cache__");
 define('BEFREE_URL', "http://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}");
+define('SITE_URL', "http://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}");
