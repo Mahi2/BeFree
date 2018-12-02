@@ -1,4 +1,5 @@
 <?php
+require(ROOT . "/vendor/autoload.php");
 
 /**
  * needed constant definition
@@ -32,13 +33,21 @@ if (file_exists(CONFIG_FILE_NAME)) {
 
     $lang = $_GET['lang'] ?? "";
     $currLang = $lang ?? $_SESSION ?? DEFAULT_LANGUAGE;
-    include(file_exists("language/{$currLang}.php") ? "language/{$currLang}.php"  : "language/en.php");
+    include(file_exists("language/{$currLang}.php") ? "language/{$currLang}.php" : "language/en.php");
 
-    function _lang(string $key): string
-    {
+    /**
+     * @param string $key
+     * @return string
+     */
+    function _lang(string $key): string {
         global $arrLang;
         return $arrLang[$key] ?? str_replace("_", " ", $key);
     }
+
+    $twig = new Twig_Environment(new Twig_Loader_Filesystem(__DIR__ . "/steps", ROOT), [
+        'cache' => RENDERER_CACHE_PATH
+    ]);
+    $twig->addFunction(new Twig_Function('_lang', _lang($key)));
 }
 
 
@@ -53,10 +62,9 @@ $step = $_GET['step'] ?? 'language';
  * routing and logic of the installation
  * and rendering installation views
  */
-ob_start();
 switch ($step) {
     case 'language' :
-        require('steps/language.php');
+        echo $twig->render('language.twig');
         break;
 
     case 'database' :
@@ -80,7 +88,18 @@ switch ($step) {
                 header("Location: ?step=settings");
             }
         }
-        require('steps/database.php');
+
+        echo $twig->render('database.twig',
+            compact(
+                'database_host',
+                'database_name',
+                'database_username',
+                'database_password',
+                'table_prefix',
+                '_SESSION',
+                '_POST'
+            )
+        );
         break;
 
     case 'settings' :
@@ -92,7 +111,8 @@ switch ($step) {
             @$_SESSION['password'] = $password;
             header("Location: ?step=done");
         }
-        require('steps/settings.php');
+
+        echo $twig->render('settings.twig', compact('username', 'password', '_POST', '_SESSION'));
         break;
 
     case 'done' :
@@ -113,7 +133,7 @@ switch ($step) {
         @$db = new mysqli($database_host, $database_username, $database_password, $database_name);
         if ($db) {
             $query = '';
-            $sql_dump = file( __DIR__ . "/sql/database.sql");
+            $sql_dump = file(__DIR__ . "/sql/database.sql");
             $sql_dump = str_replace("<DB_PREFIX>", $table_prefix, $sql_dump);
             $sql_dump = str_replace("<PROJECTSECURITY_PATH>", $projectsecurity_path, $sql_dump);
 
@@ -154,15 +174,10 @@ switch ($step) {
         } else {
             echo _lang("error_check_db_connection");
         }
-        require('steps/done.php');
+
+        echo $twig->render('done.twig');
         break;
     default :
-        require('steps/language.php');
+        echo $twig->render('language.twig');
         break;
 }
-
-/**
- * get the result and render the view
- */
-$content = ob_get_clean();
-require('steps/layout.php');
