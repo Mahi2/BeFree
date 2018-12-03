@@ -18,6 +18,7 @@ $container = $container->build();
  * Setting up a new Befree application
  */
 $app = new Befree($container);
+$app->errorHandler();
 
 if ($app->isInstalled()) {
     if (php_sapi_name() !== 'cli') {
