@@ -168,7 +168,7 @@ class Router
 
 
     /**
-     * @return bool
+     * @return bool|Route
      * @throws \Exception
      */
     public function run()

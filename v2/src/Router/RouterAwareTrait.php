@@ -57,13 +57,13 @@ trait RouterAwareTrait
                 header("Location: {$request->get('http.referer')}");
                 exit();
             } else {
-                $url = SITE_URL;
+                $url = BEFREE_URL;
                 http_response_code(301);
                 header("Location: {$url}");
                 exit();
             }
         } else {
-            $url = SITE_URL . "/{$url}";
+            $url = BEFREE_URL . "/{$url}";
             http_response_code($status);
             header("Location: {$url}");
             exit();

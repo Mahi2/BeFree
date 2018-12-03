@@ -1,5 +1,8 @@
 <?php
 
+require(dirname(__DIR__).'/config/constants.php');
+require(ROOT . "/vendor/autoload.php");
+
 /**
  * needed constant definition
  */
@@ -15,7 +18,7 @@ define("CONFIG_FILE_TEMPLATE", "config.tpl");
  * longuage and start the befree-session
  */
 if (file_exists(CONFIG_FILE_NAME)) {
-    header("Location: ../index.php", true, 403);
+    header("Location:" . BEFREE_URL . "/index.php", true, 403);
     exit();
 } else {
     if (session_status() === PHP_SESSION_NONE) {
@@ -32,15 +35,25 @@ if (file_exists(CONFIG_FILE_NAME)) {
 
     $lang = $_GET['lang'] ?? "";
     $currLang = $lang ?? $_SESSION ?? DEFAULT_LANGUAGE;
-    include(file_exists("language/{$currLang}.php") ? "language/{$currLang}.php"  : "language/en.php");
+    include(file_exists("language/{$currLang}.php") ? "language/{$currLang}.php" : "language/en.php");
 
+    /**
+     * @param string $key
+     * @return string
+     */
     function _lang(string $key): string
     {
         global $arrLang;
         return $arrLang[$key] ?? str_replace("_", " ", $key);
     }
-}
 
+    $twig = new Twig_Environment(new Twig_Loader_Filesystem(__DIR__ . "/steps", ROOT), [
+        'cache' => (ENV == 'production') ? RENDERER_CACHE_PATH : false
+    ]);
+    $twig->addFunction(new Twig_Function('_lang', function (string $key): string {
+        return _lang($key);
+    }));
+}
 
 /**
  * the step in the installation of befree
@@ -53,10 +66,9 @@ $step = $_GET['step'] ?? 'language';
  * routing and logic of the installation
  * and rendering installation views
  */
-ob_start();
 switch ($step) {
     case 'language' :
-        require('steps/language.php');
+        echo $twig->render('language.twig');
         break;
 
     case 'database' :
@@ -80,7 +92,19 @@ switch ($step) {
                 header("Location: ?step=settings");
             }
         }
-        require('steps/database.php');
+
+        echo $twig->render('database.twig',
+            compact(
+                'database_host',
+                'database_name',
+                'database_username',
+                'database_password',
+                'alert_message',
+                'table_prefix',
+                '_SESSION',
+                '_POST'
+            )
+        );
         break;
 
     case 'settings' :
@@ -92,7 +116,8 @@ switch ($step) {
             @$_SESSION['password'] = $password;
             header("Location: ?step=done");
         }
-        require('steps/settings.php');
+
+        echo $twig->render('settings.twig', compact('username', 'password', '_POST', '_SESSION'));
         break;
 
     case 'done' :
@@ -113,7 +138,7 @@ switch ($step) {
         @$db = new mysqli($database_host, $database_username, $database_password, $database_name);
         if ($db) {
             $query = '';
-            $sql_dump = file( __DIR__ . "/sql/database.sql");
+            $sql_dump = file(__DIR__ . "/sql/database.sql");
             $sql_dump = str_replace("<DB_PREFIX>", $table_prefix, $sql_dump);
             $sql_dump = str_replace("<PROJECTSECURITY_PATH>", $projectsecurity_path, $sql_dump);
 
@@ -139,7 +164,7 @@ switch ($step) {
             $config_file = str_replace("<DB_PASSWORD>", $database_password, $config_file);
             $config_file = str_replace("<DB_PREFIX>", $table_prefix, $config_file);
             $config_file = str_replace("<PROJECTSECURITY_PATH>", $projectsecurity_path, $config_file);
-            $config_file = str_replace("<SITE_URL>", $site_url, $config_file);
+            $config_file = str_replace("<BEFREE_URL>", $site_url, $config_file);
 
             $link = new mysqli($database_host, $database_username, $database_password, $database_name);
             $table = $table_prefix . 'users';
@@ -154,15 +179,10 @@ switch ($step) {
         } else {
             echo _lang("error_check_db_connection");
         }
-        require('steps/done.php');
+
+        echo $twig->render('done.twig');
         break;
     default :
-        require('steps/language.php');
+        echo $twig->render('language.twig');
         break;
 }
-
-/**
- * get the result and render the view
- */
-$content = ob_get_clean();
-require('steps/layout.php');

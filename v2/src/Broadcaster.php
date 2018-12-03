@@ -180,7 +180,7 @@ class Broadcaster
         ];
 
         $site_url = SITE_URL;
-        $befree_path = 'dkfj';
+        $befree_path = BEFREE_URL;
         $email = "notifications@{$this->request->get('server.name')}";
         $to = $mail;
         $subject = "Befree - {$type}";
