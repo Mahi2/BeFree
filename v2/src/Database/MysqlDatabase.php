@@ -2,6 +2,7 @@
 
 namespace Befree\Database;
 
+use Befree\Services\ErrorHandlerService;
 use PDO;
 use PDOException;
 
@@ -34,7 +35,7 @@ class MysqlDatabase implements DatabaseInterface
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING);
         } catch (PDOException $e) {
-            die($e);
+            ErrorHandlerService::throw($e);
         }
     }
 
@@ -107,8 +108,7 @@ class MysqlDatabase implements DatabaseInterface
                 return $req;
             }
         } catch (PDOException $e) {
-            echo "<pre>";
-            die($e);
+            ErrorHandlerService::throw($e);
         }
     }
 
@@ -133,7 +133,7 @@ class MysqlDatabase implements DatabaseInterface
                 return $req;
             }
         } catch (PDOException $e) {
-            die($e);
+            ErrorHandlerService::throw($e);
         }
     }
 }
