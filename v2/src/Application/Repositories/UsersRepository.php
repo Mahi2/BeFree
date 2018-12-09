@@ -1,13 +1,13 @@
 <?php
 
-namespace Befree\Repositories;
+namespace Befree\Applications\Repositories;
 
-use Befree\Entities\UsersEntity;
+use Befree\Applications\Entities\UsersEntity;
 use Befree\Repository;
 
 /**
  * Class UsersRepository
- * @package Befree\Repositories
+ * @package Befree\Applications\Repositories
  */
 class UsersRepository extends Repository
 {
