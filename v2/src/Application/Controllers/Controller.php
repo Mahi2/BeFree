@@ -1,15 +1,28 @@
 <?php
+namespace Befree\Application\Controllers;
+
+
+use Psr\Container\ContainerInterface;
+
 /**
- * Created by PhpStorm.
- * User: Bernard-ng
- * Date: 12/9/2018
- * Time: 11:40 PM
+ * Class Controller
+ * @package Befree\Applications\Controllers
  */
-
-namespace Befree\Applications\Controllers;
-
-
 class Controller
 {
 
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+
+    /**
+     * Controller constructor.
+     * @param ContainerInterface $container
+     */
+    public  function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
 }
