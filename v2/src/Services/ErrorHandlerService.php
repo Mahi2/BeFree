@@ -24,9 +24,9 @@ class ErrorHandlerService
 
 
     /**
-     * @param \Exception $e
+     * @param \Exception | \Error $e
      */
-    public function throwException(\Exception $e): void
+    public function throwException($e): void
     {
         if (ENV  === 'production') {
             $this->log->write($e);
@@ -38,9 +38,9 @@ class ErrorHandlerService
 
 
     /**
-     * @param \Exception $e
+     * @param \Exception | \Error $e
      */
-    public static function throw(\Exception $e): void
+    public static function throw($e): void
     {
         $service = new self();
         $service->throwException($e);
