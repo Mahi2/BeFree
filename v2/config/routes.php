@@ -4,4 +4,4 @@
  * befree application's routes
  */
 
-$router->get('/', "Dashboard@index");
+$router->get('/', "Dashboard@index", "dashboard.index");
