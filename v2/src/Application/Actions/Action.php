@@ -1,6 +1,6 @@
 <?php
 
-namespace Befree\Actions;
+namespace Befree\Applications\Actions;
 
 use Befree\Broadcaster;
 use Befree\Renderer\TwigRenderer;
@@ -9,7 +9,7 @@ use DI\Container;
 
 /**
  * Class Action
- * @package Befree\Actions
+ * @package Befree\Applications\Actions
  */
 class Action
 {

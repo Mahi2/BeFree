@@ -1,6 +1,6 @@
 <?php
 
-namespace Befree\Entities;
+namespace Befree\Applications\Entities;
 
 /**
  * Class UsersEntity

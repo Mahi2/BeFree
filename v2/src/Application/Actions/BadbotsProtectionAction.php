@@ -1,6 +1,6 @@
 <?php
 
-namespace Befree\Actions;
+namespace Befree\Applications\Actions;
 
 use Befree\Repositories\BadbotSettingsRepository;
 use Befree\Repositories\LogsRepository;
@@ -8,7 +8,7 @@ use DI\Container;
 
 /**
  * Class BadbotsProtectionAction
- * @package Befree\Actions
+ * @package Befree\Applications\Actions
  */
 class BadbotsProtectionAction extends Action
 {

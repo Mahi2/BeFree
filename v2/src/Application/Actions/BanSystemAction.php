@@ -1,6 +1,6 @@
 <?php
 
-namespace Befree\Actions;
+namespace Befree\Applications\Actions;
 
 use Befree\Repositories\BansCountryRepository;
 use Befree\Repositories\BansOtherRepository;
@@ -10,7 +10,7 @@ use DI\Container;
 
 /**
  * Class BanSystemAction
- * @package Befree\Actions
+ * @package Befree\Applications\Actions
  */
 class BanSystemAction extends Action
 {

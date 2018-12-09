@@ -1,13 +1,13 @@
 <?php
 
-namespace Befree\Actions;
+namespace Befree\Applications\Actions;
 
 use Befree\Repositories\AdblockerSettingsRepository;
 use DI\Container;
 
 /**
  * Class AdblockerDetectorAction
- * @package Befree\Actions
+ * @package Befree\Applications\Actions
  */
 class AdblockerDetectorAction extends Action
 {
