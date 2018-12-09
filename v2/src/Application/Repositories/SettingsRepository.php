@@ -1,12 +1,12 @@
 <?php
 
-namespace Befree\Repositories;
+namespace Befree\Applications\Repositories;
 
 use Befree\Repository;
 
 /**
  * Class SettingsRepository
- * @package Befree\Repositories
+ * @package Befree\Applications\Repositories
  */
 class SettingsRepository extends Repository
 {
