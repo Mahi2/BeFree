@@ -24,15 +24,6 @@ class ErrorHandlerService
 
 
     /**
-     * @param $method
-     * @param $e
-     */
-    public static function __callStatic($method, $e) {
-        $service = new self();
-        $service->throwException($e[0]);
-    }
-
-    /**
      * @param \Exception $e
      */
     public function throwException(\Exception $e): void
@@ -43,6 +34,16 @@ class ErrorHandlerService
             echo $this->header();
             echo $this->body(print_r($e, true), $e);
         }
+    }
+
+
+    /**
+     * @param $e
+     */
+    public static function throw($e)
+    {
+        $service = new self();
+        $service->throwException($e[0]);
     }
 
 
