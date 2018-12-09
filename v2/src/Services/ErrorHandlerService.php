@@ -17,9 +17,46 @@ class ErrorHandlerService
      * ErrorManager constructor.
      * @param string $logFilesPath
      */
-    public function __construct(string $logFilesPath)
+    public function __construct(string $logFilesPath = LOGFILES_PATH)
     {
         $this->log = new LogWriterService($logFilesPath);
+    }
+
+
+    /**
+     * @param $method
+     * @param $e
+     */
+    public static function __callStatic($method, $e) {
+        $service = new self();
+        $service->throwException($e[0]);
+    }
+
+    /**
+     * @param \Exception $e
+     */
+    public function throwException(\Exception $e): void
+    {
+        if (ENV  === 'production') {
+            $this->log->write($e);
+        } else {
+            echo $this->header();
+            echo $this->body(print_r($e, true), $e);
+        }
+    }
+
+
+    /**
+     * @param array $args
+     */
+    private function throwError(array $args): void
+    {
+        if (ENV === 'production') {
+            $this->log->write($args);
+        } else {
+            echo $this->header();
+            echo $this->body(print_r($args, true));
+        }
     }
 
 
@@ -29,21 +66,11 @@ class ErrorHandlerService
     public function catch()
     {
         set_exception_handler(function ($e) {
-            if (ENV  === 'production') {
-                $this->log->write($e);
-            } else {
-                echo $this->header();
-                echo $this->body(print_r($e, true), $e);
-            }
+            $this->throwException($e);
         });
 
         set_error_handler(function (...$args) {
-            if (ENV === 'production') {
-                $this->log->write($args);
-            } else {
-                echo $this->header();
-                echo $this->body(print_r($args, true));
-            }
+            $this->throwError($args);
         });
     }
 
