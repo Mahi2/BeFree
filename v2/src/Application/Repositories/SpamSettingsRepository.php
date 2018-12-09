@@ -1,12 +1,12 @@
 <?php
 
-namespace Befree\Repositories;
+namespace Befree\Applications\Repositories;
 
 use Befree\Repository;
 
 /**
  * Class SpamSettingsRepository
- * @package Befree\Repositories
+ * @package Befree\Applications\Repositories
  */
 class SpamSettingsRepository extends Repository
 {
