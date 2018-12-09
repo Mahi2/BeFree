@@ -181,7 +181,7 @@ class Router
                     }
                 }
             } else {
-                throw new \Exception("undefined request method", 500);
+                http_response_code(404);
             }
             return null;
         }
