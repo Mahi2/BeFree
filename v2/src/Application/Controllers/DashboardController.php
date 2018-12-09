@@ -1,5 +1,5 @@
 <?php
-namespace Befree\Applications\Controllers;
+namespace Befree\Application\Controllers;
 
 use Psr\Container\ContainerInterface;
 
@@ -8,7 +8,7 @@ use Psr\Container\ContainerInterface;
  * Class DashboardController
  * @package Befree\Applications\Controllers
  */
-class DashboardController
+class DashboardController extends Controller
 {
 
     /**
@@ -17,7 +17,7 @@ class DashboardController
      */
     public function __construct(ContainerInterface $container)
     {
-        //parent::__construct($container);
+        parent::__construct($container);
     }
 
 
