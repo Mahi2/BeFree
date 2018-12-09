@@ -1,12 +1,12 @@
 <?php
 
-namespace Befree\Repositories;
+namespace Befree\Applications\Repositories;
 
 use Befree\Repository;
 
 /**
  * Class BansOtherRepository
- * @package Befree\Repositories
+ * @package Befree\Applications\Repositories
  */
 class BansOtherRepository extends Repository
 {
