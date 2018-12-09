@@ -1,12 +1,12 @@
 <?php
 
-namespace Befree\Repositories;
+namespace Befree\Applications\Repositories;
 
 use Befree\Repository;
 
 /**
  * Class SqliSettingsRepository
- * @package Befree\Repositories
+ * @package Befree\Applications\Repositories
  */
 class SqliSettingsRepository extends Repository
 {
