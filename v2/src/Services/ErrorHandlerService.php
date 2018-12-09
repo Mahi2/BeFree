@@ -38,12 +38,12 @@ class ErrorHandlerService
 
 
     /**
-     * @param $e
+     * @param \Exception $e
      */
-    public static function throw($e)
+    public static function throw(\Exception $e): void
     {
         $service = new self();
-        $service->throwException($e[0]);
+        $service->throwException($e);
     }
 
 
