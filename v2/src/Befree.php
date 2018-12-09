@@ -110,4 +110,16 @@ class Befree
             $errorHandler->catch();
         }
     }
+
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    private function getAction(string $name)
+    {
+        $namespace = __NAMESPACE__ . "\\Application\\Controllers\\";
+        $controller = $namespace . ucfirst($name) . 'Controller';
+        return $controller;
+    }
 }
