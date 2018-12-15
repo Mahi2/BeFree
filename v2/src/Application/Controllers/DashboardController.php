@@ -3,7 +3,6 @@ namespace Befree\Application\Controllers;
 
 use Psr\Container\ContainerInterface;
 
-
 /**
  * Class DashboardController
  * @package Befree\Applications\Controllers

@@ -1,7 +1,6 @@
 <?php
 namespace Befree\Application\Controllers;
 
-
 use Psr\Container\ContainerInterface;
 
 /**
@@ -21,7 +20,7 @@ class Controller
      * Controller constructor.
      * @param ContainerInterface $container
      */
-    public  function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }

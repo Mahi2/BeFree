@@ -4,7 +4,6 @@ namespace Befree\Helpers;
 
 use GuzzleHttp\Client;
 
-
 /**
  * Class IpDetails
  * @package Befree\Helpers
