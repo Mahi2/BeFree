@@ -21,6 +21,12 @@
     "twig/twig": "^2.5",
     "guzzlehttp/guzzle": "^6.3",
     "squizlabs/php_codesniffer": "^3.3",
-    "symfony/console": "^4.2"
+    "symfony/console": "^4.2",
+    "http-interop/response-sender": "^1.0",
+    "zendframework/zend-expressive-fastroute": "^3.0",
+    "guzzlehttp/psr7": "^1.5"
+  },
+  "require-dev": {
+    "malukenho/docheader": "^0.1.7"
   }
 }
