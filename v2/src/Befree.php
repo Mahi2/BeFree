@@ -15,6 +15,7 @@
 namespace Befree;
 
 use Befree\Services\ErrorHandlerService;
+use DI\ContainerBuilder;
 use Exception;
 use Befree\Router\RouterAwareTrait;
 use Psr\Container\ContainerInterface;
@@ -36,14 +37,36 @@ class Befree
      */
     private $container;
 
+    /**
+     * configuration for the container
+     * @var string
+     */
+    private $config;
+
 
     /**
      * Befree constructor.
-     * @param ContainerInterface $container
+     * @param string $config
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(string $config)
     {
-        $this->container = $container;
+        $this->config = $config;
+        $this->container = $this->getContainer();
+    }
+
+
+    /**
+     * @return ContainerBuilder|ContainerInterface
+     */
+    public function getContainer()
+    {
+        if (is_null($this->container)) {
+            $container = new ContainerBuilder();
+            $container->addDefinitions($this->config);
+            $this->container =  $container->build();
+            return $this->container;
+        }
+        return $this->container;
     }
 
 
@@ -104,22 +127,14 @@ class Befree
     }
 
 
-    /**
-     * @return ContainerInterface
-     */
-    public function getContainer(): ContainerInterface
-    {
-        return $this->container;
-    }
-
 
     /**
      * @param bool $active
      */
     public function errorHandler(bool $active = true)
     {
-        $errorHandler = $this->container->get(ErrorHandlerService::class);
         if ($active) {
+            $errorHandler = $this->container->get(ErrorHandlerService::class);
             $errorHandler->catch();
         }
     }
