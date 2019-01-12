@@ -14,6 +14,7 @@
 
 namespace Befree\Application\Controllers;
 
+use Befree\Renderer\RendererInterface;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -36,5 +37,12 @@ class Controller
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $this->renderer = $container->get(RendererInterface::class);
+    }
+
+
+    protected function render(string $view, array $data = [])
+    {
+        echo $this->renderer->render($view, $data);
     }
 }
