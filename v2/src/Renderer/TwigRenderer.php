@@ -41,6 +41,11 @@ class TwigRenderer implements RendererInterface
         if (ENV === 'development') {
             $this->twig->addExtension(new \Twig_Extension_Debug());
         }
+
+        $extensions = require_once(ROOT."/config/extensions.php");
+        foreach ($extensions as $extension) {
+            $this->twig->addExtension(new $extension());
+        }
     }
 
 
