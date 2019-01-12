@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <meta name="theme-color" content="#4b545c">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <title>BeFree &rsaquo; {{ page.active | default('Admin Panel') }}</title>
+
+    {% include 'includes/style.twig' %}
+    {% block pageHeadPlugin %}{% endblock %}
+</head>
+<body class="hold-transition sidebar-mini {{ page.layout }}">
+<div class="wrapper">
+    {% include 'includes/menu.twig' %}
+    {% include 'includes/sidebar.twig' %}
+
+    <div class="content-wrapper">
+        {% block breadcrumb %}{% endblock %}
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include 'includes/footer.twig' %}
+</div>
+
+{% include 'includes/script.twig' %}
+{% block pagePlugin %}{% endblock %}
+{% block pageScript %}{% endblock %}
+<script src="assets/js/admin.min.js"></script>
+</body>
+</html>
