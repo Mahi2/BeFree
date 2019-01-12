@@ -1,0 +1,28 @@
+<nav class="main-header navbar navbar-expand bg-dark navbar-light border-bottom">
+    <ul class="nav navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
+    </ul>
+
+    <form class="form-inline ml-3" action="search" method="get">
+        <div class="input-group input-group-sm">
+            <input type="text" name="ip" class="form-control form-control-navbar" placeholder="IP Lookup" required>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-navbar"><i class="fa fa-search"></i></button>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item d-none d-md-block">
+            <a href="{{ page.siteUrl }}" class="nav-link" target="_blank" title="View Site">
+                <i class="fas fa-desktop"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path.settings }}" class="nav-link" title="Settings"><i class="fas fa-cogs"></i></a>
+        </li>
+    </ul>
+</nav>
