@@ -12,9 +12,9 @@
  *   file that was distributed with this source code.
  */
 
-namespace Befree\Applications\Actions;
+namespace Befree\Application\Actions;
 
-use Befree\Repositories\AdblockerSettingsRepository;
+use Befree\Application\Repositories\AdblockerSettingsRepository;
 use DI\Container;
 
 /**

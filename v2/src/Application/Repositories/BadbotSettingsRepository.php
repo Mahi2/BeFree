@@ -12,7 +12,7 @@
  *   file that was distributed with this source code.
  */
 
-namespace Befree\Applications\Repositories;
+namespace Befree\Application\Repositories;
 
 use Befree\Repository;
 

@@ -14,7 +14,7 @@
 
 namespace Befree;
 
-use Befree\Repositories\UsersRepository;
+use Befree\Application\Repositories\UsersRepository;
 
 /**
  * Class Auth

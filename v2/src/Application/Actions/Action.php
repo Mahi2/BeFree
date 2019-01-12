@@ -12,11 +12,11 @@
  *   file that was distributed with this source code.
  */
 
-namespace Befree\Applications\Actions;
+namespace Befree\Application\Actions;
 
 use Befree\Broadcaster;
 use Befree\Renderer\TwigRenderer;
-use Befree\Repositories\SettingsRepository;
+use Befree\Application\Repositories\SettingsRepository;
 use DI\Container;
 
 /**

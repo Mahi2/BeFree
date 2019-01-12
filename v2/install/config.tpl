@@ -8,8 +8,8 @@ return [
         "password" => "<DB_PASSWORD>",
         "name" => "<DB_NAME>",
         "prefix" => "<DB_PREFIX>",
-    ],
+   ],
 
-    "site_url" => "<SITE_URL>",
-    "befree_path" => "<PROJECTSECURITY_PATH>"
+   "site_url" => "<SITE_URL>",
+   "befree_path" => "<PROJECTSECURITY_PATH>"
 ];

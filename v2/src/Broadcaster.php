@@ -17,9 +17,9 @@ namespace Befree;
 use Befree\Helpers\IpDetails;
 use Befree\Helpers\UserAgentFactoryPS;
 use Befree\Http\RequestAwareTrait;
-use Befree\Repositories\BansRepository;
-use Befree\Repositories\LogsRepository;
-use Befree\Repositories\SettingsRepository;
+use Befree\Application\Repositories\BansRepository;
+use Befree\Application\Repositories\LogsRepository;
+use Befree\Application\Repositories\SettingsRepository;
 use DI\Container;
 
 /**

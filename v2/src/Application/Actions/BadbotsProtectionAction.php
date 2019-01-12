@@ -12,10 +12,9 @@
  *   file that was distributed with this source code.
  */
 
-namespace Befree\Applications\Actions;
+namespace Befree\Application\Actions;
 
-use Befree\Repositories\BadbotSettingsRepository;
-use Befree\Repositories\LogsRepository;
+use Befree\Application\Repositories\BadbotSettingsRepository;
 use DI\Container;
 
 /**

@@ -1,7 +1,18 @@
 <?php
-//------------------------------------------------------------------------------
+/**
+ *   This file is part of the Befree.
+ *
+ *   @copyright   Henrique Mukanda <mahi2hm@outlook.fr>
+ *   @copyright   Bernard ngandu <ngandubernard@gmail.com>
+ *   @link    https://github.com/Mahi2/BeFree
+ *   @link    https://github.com/bernard-ng/Befree
+ *   @license   http://framework.zend.com/license/new-bsd New BSD License
+ *
+ *   For the full copyright and license information, please view the LICENSE
+ *   file that was distributed with this source code.
+ */
+
 // English (EN)
-//------------------------------------------------------------------------------
 $arrLang = [];
 
 $arrLang['alert_remove_files']        = "For security reasons, please remove the <b>install/</b> folder from your server!";
@@ -26,4 +37,3 @@ $arrLang['password']            = "Password";
 $arrLang['proceed']             = "Continue to BeFree";
 $arrLang['put_code']            = "Now put this code in a main file of your website to enable BeFree (Change \"projectsecurity_folder\" with the path on which you installed the product)";
 $arrLang['success_install']     = "BeFree has been successfully installed on your website!";
-?>

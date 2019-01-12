@@ -12,12 +12,12 @@
  *   file that was distributed with this source code.
  */
 
-namespace Befree\Applications\Actions;
+namespace Befree\Application\Actions;
 
-use Befree\Repositories\BansCountryRepository;
-use Befree\Repositories\BansOtherRepository;
-use Befree\Repositories\BansRepository;
-use Befree\Repositories\SettingsRepository;
+use Befree\Application\Repositories\BansCountryRepository;
+use Befree\Application\Repositories\BansOtherRepository;
+use Befree\Application\Repositories\BansRepository;
+use Befree\Application\Repositories\SettingsRepository;
 use DI\Container;
 
 /**

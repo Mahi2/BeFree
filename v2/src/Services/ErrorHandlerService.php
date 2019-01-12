@@ -114,6 +114,12 @@ EOF;
     }
 
 
+    /**
+     * write the logs
+     * @param string $content
+     * @param null $e
+     * @return string
+     */
     private function body(string $content, $e = null): string
     {
         $title = $e->getMessage() ?? '';
