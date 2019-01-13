@@ -46,6 +46,7 @@ class ErrorHandlerService
         } else {
             echo $this->header();
             echo $this->body(print_r($e, true), $e);
+            exit();
         }
     }
 
@@ -70,6 +71,7 @@ class ErrorHandlerService
         } else {
             echo $this->header();
             echo $this->body(print_r($args, true));
+            exit();
         }
     }
 
@@ -117,12 +119,13 @@ EOF;
     /**
      * write the logs
      * @param string $content
-     * @param null $e
+     * @param \Exception|\Error|null $e $
      * @return string
+     * @internal param null $e
      */
     private function body(string $content, $e = null): string
     {
-        $title = $e->getMessage() ?? '';
+        $title = is_null($e)? '' : $e->getMessage();
         $class = get_class($e) ?? '';
         return <<< EOF
 <style>
