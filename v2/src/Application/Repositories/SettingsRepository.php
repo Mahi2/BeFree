@@ -14,6 +14,7 @@
 
 namespace Befree\Application\Repositories;
 
+use Befree\Database\DatabaseInterface;
 use Befree\Repository;
 
 /**
@@ -23,4 +24,12 @@ use Befree\Repository;
 class SettingsRepository extends Repository
 {
 
+    /**
+     * SettingsRepository constructor.
+     * @param DatabaseInterface $database
+     */
+    public function __construct(DatabaseInterface $database)
+    {
+        parent::__construct($database);
+    }
 }

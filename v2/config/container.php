@@ -45,7 +45,7 @@ return [
         get('database.password')
     ),
     \PDO::class => factory([MysqlDatabase::class, 'getPDO']),
-    Repository::class => object(Repository::class)->constructor(DatabaseInterface::class, get('database.prefix')),
+    Repository::class => object(Repository::class)->constructor(DatabaseInterface::class),
 
     /**
      * Renderer view configuration and other configuration

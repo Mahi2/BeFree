@@ -52,11 +52,11 @@ class Repository
     /**
      * Repository constructor.
      * @param DatabaseInterface $database
-     * @param string $prefix
      */
-    public function __construct(DatabaseInterface $database, string $prefix)
+    public function __construct(DatabaseInterface $database)
     {
-        $this->prefix = $prefix;
+        $config = new ConfigProvider(ROOT . "/config.php");
+        $this->prefix = $config->get('database.prefix');
         $this->db = $database;
     }
 
@@ -160,5 +160,13 @@ class Repository
     public function all()
     {
         return $this->query("SELECT * FROM {$this->getTable()}");
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrefix(): string
+    {
+        return $this->prefix;
     }
 }
