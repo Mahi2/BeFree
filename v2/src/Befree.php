@@ -95,14 +95,10 @@ class Befree
     {
         $route = ($this->getRouter())->run();
         if ($route) {
-            if (is_string($route->getController())) {
-                $action = explode('@', $route->getController());
-                $method = $action[1] ?? 'index';
-                $controller = $this->container->get($this->getAction($action[0]));
-                call_user_func_array([$controller, $method], $route->getMatches());
-                exit();
-            }
-            call_user_func_array($route->getController(), $route->getMatches());
+            $action = $route->getController();
+            $method = $action[1] ?? 'index';
+            $controller = $this->container->get($action[0]);
+            call_user_func_array([$controller, $method], $route->getMatches());
             exit();
         } else {
             http_response_code(404);
