@@ -115,7 +115,7 @@ class Request
         if ($key === null) {
             return new Collection($this->post);
         }
-        $data = new Collection($this->post);
+        $data = new Collection($this->post ??  []);
         return $data->get($key);
     }
 
@@ -171,5 +171,27 @@ class Request
     {
         return ($this->get('http.x.requested.with') &&
             strtolower($this->get('http.x.requested.with')) == 'xmlhttprequest') ? true : false;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isPost(): bool
+    {
+        return
+            isset($this->post) &&
+            !empty($this->post) &&
+            strtolower($this->getMethod()) === 'post';
+    }
+
+
+    /**
+     * tell which HTTP method is used
+     * @return string
+     */
+    public function getMethod(): string
+    {
+        return $this->get('request.method');
     }
 }
