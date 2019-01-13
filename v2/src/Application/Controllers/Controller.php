@@ -14,6 +14,8 @@
 
 namespace Befree\Application\Controllers;
 
+use Befree\Application\Repositories\SettingsRepository;
+use Befree\Http\Request;
 use Befree\Renderer\RendererInterface;
 use Psr\Container\ContainerInterface;
 
@@ -31,6 +33,26 @@ class Controller
 
 
     /**
+     * modules load
+     * @var array
+     */
+    protected $modules = [];
+
+
+    /**
+     * the current request
+     * @var Request|mixed
+     */
+    protected $request;
+
+    /**
+     * general settings
+     * @var SettingsRepository|mixed
+     */
+    private $settings;
+
+
+    /**
      * Controller constructor.
      * @param ContainerInterface $container
      */
@@ -38,9 +60,16 @@ class Controller
     {
         $this->container = $container;
         $this->renderer = $container->get(RendererInterface::class);
+        $this->settings = $container->get(SettingsRepository::class);
+        $this->request = $container->get(Request::class);
     }
 
 
+    /**
+     * render a view
+     * @param string $view
+     * @param array $data
+     */
     protected function render(string $view, array $data = [])
     {
         echo $this->renderer->render($view, $data);
