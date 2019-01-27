@@ -4,7 +4,11 @@
  */
 
 use Befree\Application\Controllers\{
-    DashboardController, Tools\ErrorMonitoringController, Tools\HtaccessEditorController, Tools\IpBlackListCheckerController, Tools\PortScannerController
+    DashboardController,
+    Tools\ErrorMonitoringController,
+    Tools\HtaccessEditorController,
+    Tools\IpBlackListCheckerController,
+    Tools\PortScannerController
 };
 
 
