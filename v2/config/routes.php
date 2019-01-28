@@ -51,8 +51,8 @@ security_routes : {
     $router->post('security/spam', [SpamController::class], 'security.spam');
     $router->get('security/sql-injection', [SqlInjectionController::class], 'security.sqlInjection');
     $router->post('security/sql-injection', [SqlInjectionController::class], 'security.sqlInjection');
-    $router->get('TorDetection', [TorDetectionController::class], 'security.tor-detection');
-    $router->post('TorDetection', [TorDetectionController::class], 'security.tor-detection');
+    $router->get('security/TorDetection', [TorDetectionController::class], 'security.tor-detection');
+    $router->post('security/TorDetection', [TorDetectionController::class], 'security.tor-detection');
 }
 
 
