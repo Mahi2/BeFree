@@ -19,8 +19,3 @@ define('LOGFILES_PATH', dirname(__DIR__) . "/data/logs");
 define('RENDERER_CACHE_PATH', dirname(__DIR__) . "/views/__cache__");
 define('BEFREE_URL', "http://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}");
 define('SITE_URL', "http://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}");
-
-ini_set('memory_limit', '4096M');
-ini_set('post_max_size', '20M');
-ini_set('upload_max_filesize', '20M');
-ini_set('max_file_uploads', '20');

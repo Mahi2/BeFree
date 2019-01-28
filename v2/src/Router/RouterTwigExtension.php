@@ -15,7 +15,6 @@
 
 namespace Befree\Router;
 
-
 /**
  * Class RouterTwigExtension
  * @package Befree\Router

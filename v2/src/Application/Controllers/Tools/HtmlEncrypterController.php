@@ -15,9 +15,7 @@
 
 namespace Befree\Application\Controllers\Tools;
 
-
 use Befree\Application\Controllers\Controller;
-
 
 /**
  * Class HtmlEncrypterController
@@ -28,6 +26,5 @@ class HtmlEncrypterController extends Controller
 
     public function index()
     {
-
     }
 }

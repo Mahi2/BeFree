@@ -15,9 +15,7 @@
 
 namespace Befree\Application\Controllers\Tools;
 
-
 use Befree\Application\Controllers\Controller;
-
 
 /**
  * Class ErrorMonitoringController
@@ -28,6 +26,5 @@ class ErrorMonitoringController extends Controller
 
     public function index()
     {
-
     }
 }

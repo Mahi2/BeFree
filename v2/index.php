@@ -3,6 +3,7 @@
 use Befree\Befree;
 
 // Loads configuration and autoloader
+require_once(__DIR__ . "/config/ini.php");
 require_once(__DIR__ . "/config/constants.php");
 require_once(__DIR__ . "/vendor/autoload.php");
 

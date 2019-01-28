@@ -15,7 +15,6 @@
 
 namespace Befree\Application\Controllers\Tools;
 
-
 use Befree\Application\Controllers\Controller;
 use Befree\Http\Request;
 use Befree\Http\RequestAwareTrait;

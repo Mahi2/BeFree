@@ -15,7 +15,6 @@
 
 namespace Befree\Application\Controllers\Tools;
 
-
 use Befree\Application\Controllers\Controller;
 
 /**

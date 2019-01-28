@@ -4,29 +4,22 @@
  */
 
 use Befree\Application\Controllers\DashboardController;
-use Befree\Application\Controllers\Analytics\{
-    LiveTrafficController,
-    VisitAnalyticsController
-};
-use Befree\Application\Controllers\Security\{
-    AdBlockerDetectionController,
-    BadBotController,
-    MassRequestController,
-    ProxyController,
-    SpamController,
-    SqlInjectionController,
-    TorDetectionController
-};
-use Befree\Application\Controllers\Tools\{
-    ErrorMonitoringController,
-    HashingController,
-    HtaccessEditorController,
-    HtmlEncrypterController,
-    IpBlackListCheckerController,
-    PasswordGeneratorController,
-    PortScannerController
-};
-
+use Befree\Application\Controllers\Analytics\LiveTrafficController;
+use Befree\Application\Controllers\Analytics\VisitAnalyticsController;
+use Befree\Application\Controllers\Security\AdBlockerDetectionController;
+use Befree\Application\Controllers\Security\BadBotController;
+use Befree\Application\Controllers\Security\MassRequestController;
+use Befree\Application\Controllers\Security\ProxyController;
+use Befree\Application\Controllers\Security\SpamController;
+use Befree\Application\Controllers\Security\SqlInjectionController;
+use Befree\Application\Controllers\Security\TorDetectionController;
+use Befree\Application\Controllers\Tools\ErrorMonitoringController;
+use Befree\Application\Controllers\Tools\HashingController;
+use Befree\Application\Controllers\Tools\HtaccessEditorController;
+use Befree\Application\Controllers\Tools\HtmlEncrypterController;
+use Befree\Application\Controllers\Tools\IpBlackListCheckerController;
+use Befree\Application\Controllers\Tools\PasswordGeneratorController;
+use Befree\Application\Controllers\Tools\PortScannerController;
 
 $router->get('/', [DashboardController::class, 'index'], "dashboard.index");
 

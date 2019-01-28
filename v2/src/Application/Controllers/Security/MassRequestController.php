@@ -16,7 +16,6 @@
 
 namespace Befree\Application\Controllers\Security;
 
-
 use Befree\Application\Controllers\Controller;
 
 /**

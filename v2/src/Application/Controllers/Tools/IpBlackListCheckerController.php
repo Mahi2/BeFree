@@ -15,7 +15,6 @@
 
 namespace Befree\Application\Controllers\Tools;
 
-
 use Befree\Application\Controllers\Controller;
 
 /**
@@ -27,6 +26,5 @@ class IpBlackListCheckerController extends Controller
 
     public function index()
     {
-
     }
 }

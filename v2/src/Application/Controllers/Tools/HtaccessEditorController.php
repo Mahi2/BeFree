@@ -15,7 +15,6 @@
 
 namespace Befree\Application\Controllers\Tools;
 
-
 use Befree\Application\Controllers\Controller;
 
 /**
@@ -25,8 +24,8 @@ use Befree\Application\Controllers\Controller;
 class HtaccessEditorController extends Controller
 {
 
-   public function index()
-   {
-       echo 'hello world';
-   }
+    public function index()
+    {
+        echo 'hello world';
+    }
 }
