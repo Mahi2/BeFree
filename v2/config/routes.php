@@ -4,6 +4,15 @@
  */
 
 use Befree\Application\Controllers\DashboardController;
+use Befree\Application\Controllers\Security\{
+    AdBlockerDetectionController,
+    BadBotController,
+    MassRequestController,
+    ProxyController,
+    SpamController,
+    SqlInjectionController,
+    TorDetectionController
+};
 use Befree\Application\Controllers\Tools\{
     ErrorMonitoringController,
     HashingController,
@@ -25,7 +34,13 @@ analytics_routes : {
 
 // SECURITY
 security_routes : {
-
+    $router->get('security/adblocker-detection', [AdBlockerDetectionController::class], 'security.adbBlockDetection');
+    $router->get('security/badbot', [BadBotController::class], 'security.badBot');
+    $router->get('security/mass-request', [MassRequestController::class], 'security.massRequest');
+    $router->get('security/proxy', [ProxyController::class], 'security.proxy');
+    $router->get('security/spam', [SpamController::class], 'security.spam');
+    $router->get('security/sql-injection', [SqlInjectionController::class], 'security.sqlInjection');
+    $router->get('TorDetection', [TorDetectionController::class], 'security.tor-detection');
 }
 
 
