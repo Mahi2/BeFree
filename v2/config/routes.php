@@ -3,12 +3,15 @@
  * befree application's routes
  */
 
-use Befree\Application\Controllers\{
-    DashboardController,
-    Tools\ErrorMonitoringController,
-    Tools\HtaccessEditorController,
-    Tools\IpBlackListCheckerController,
-    Tools\PortScannerController
+use Befree\Application\Controllers\DashboardController;
+use Befree\Application\Controllers\Tools\{
+    ErrorMonitoringController,
+    HashingController,
+    HtaccessEditorController,
+    HtmlEncrypterController,
+    IpBlackListCheckerController,
+    PasswordGeneratorController,
+    PortScannerController
 };
 
 
@@ -36,9 +39,9 @@ tools_routes : {
     $router->post('tools/error-monitoring', [ErrorMonitoringController::class], 'tools.errorMonitoring');
     $router->get('tools/ip-blacklist-checker', [IpBlackListCheckerController::class], 'tools.ipBlackListChecker');
     $router->post('tools/ip-blacklist-checker', [IpBlackListCheckerController::class], 'tools.ipBlackListChecker');
-    $router->get('tools/html-encrypter', [], 'tools.htmlEncrypter');
-    $router->post('tools/html-encrypter', [], 'tools.htmlEncrypter');
-    $router->get('tools/password-generator', [], 'tools.passwordGenerator');
-    $router->get('tools/hashing', [], 'tools.hashing');
-    $router->post('tools/hashing', [], 'tools.hashing');
+    $router->get('tools/html-encrypter', [HtmlEncrypterController::class], 'tools.htmlEncrypter');
+    $router->post('tools/html-encrypter', [HtmlEncrypterController::class], 'tools.htmlEncrypter');
+    $router->get('tools/password-generator', [PasswordGeneratorController::class], 'tools.passwordGenerator');
+    $router->get('tools/hashing', [HashingController::class], 'tools.hashing');
+    $router->post('tools/hashing', [HashingController::class], 'tools.hashing');
 }
