@@ -268,43 +268,43 @@
 
                 <li class="nav-header">TOOLS</li>
                 <li class="nav-item {{ page.active == 'portScanner' ? 'active' : '' }}">
-                    <a href="{{ path('portScanner') }}" class="nav-link {{ page.active == 'portScanner' ? 'active' : '' }}">
+                    <a href="{{ path('tools.portScanner') }}" class="nav-link {{ page.active == 'portScanner' ? 'active' : '' }}">
                         <i class="fas fa-search"></i>&nbsp; <p>Port Scanner</p>
                     </a>
                 </li>
 
                 <li class="nav-item {{ page.active == 'htaccessEditor' ? 'active' : '' }}">
-                    <a href="{{ path('htaccessEditor') }}" class="nav-link {{ page.active == 'htaccessEditor' ? 'active' : '' }}">
+                    <a href="{{ path('tools.htaccessEditor') }}" class="nav-link {{ page.active == 'htaccessEditor' ? 'active' : '' }}">
                         <i class="fas fa-columns"></i>&nbsp; <p>.htacces Editor</p>
                     </a>
                 </li>
 
                 <li class="nav-item {{ page.active == 'errorMonitoring' ? 'active' : '' }}">
-                    <a href="error-monitoring.php" class="nav-link {{ page.active == 'errorMonitoring' ? 'active' : '' }}">
+                    <a href="{{ path('tools.errorMonitoring') }}" class="nav-link {{ page.active == 'errorMonitoring' ? 'active' : '' }}">
                         <i class="fas fa-exclamation-circle"></i>&nbsp; <p>Error Monitoring</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ page.active == 'blacklistChecker' ? 'active' : '' }}">
-                    <a href="blacklist-checker.php" class="nav-link {{ page.active == 'blacklistChecker' ? 'active' : '' }}">
+                <li class="nav-item {{ page.active == 'ipBlacklistChecker' ? 'active' : '' }}">
+                    <a href="{{ path('tools.ipBlackListChecker') }}" class="nav-link {{ page.active == 'ipBlacklistChecker' ? 'active' : '' }}">
                         <i class="fas fa-list"></i>&nbsp; <p>IP Blacklist Checker</p>
                     </a>
                 </li>
 
                 <li class="nav-item {{ page.active == 'htmlEncrypter' ? 'active' : '' }}">
-                    <a href="html-encrypter.php" class="nav-link {{ page.active == 'htmlEncrypter' ? 'active' : '' }}">
+                    <a href="{{ path('tools.htmlEncrypter') }}" class="nav-link {{ page.active == 'htmlEncrypter' ? 'active' : '' }}">
                         <i class="fas fa-code"></i>&nbsp; <p>HTML Encrypter</p>
                     </a>
                 </li>
 
                 <li class="nav-item {{ page.active == 'passwordGenerator' ? 'active' : '' }}">
-                    <a href="password-generator.php" class="nav-link {{ page.active == 'passwordGenerator' ? 'active' : '' }}">
+                    <a href="{{ path('tools.passwordGenerator') }}" class="nav-link {{ page.active == 'passwordGenerator' ? 'active' : '' }}">
                         <i class="fas fa-key"></i>&nbsp; <p>Password Generator</p>
                     </a>
                 </li>
 
                 <li class="nav-item {{ page.active == 'hashing' ? 'active' : '' }}">
-                    <a href="hashing.php" class="nav-link {{ page.active == 'hashing' ? 'active' : '' }}">
+                    <a href="{{ path('tools.hashing') }}" class="nav-link {{ page.active == 'hashing' ? 'active' : '' }}">
                         <i class="fas fa-lock"></i>&nbsp; <p>Hashing</p>
                     </a>
                 </li>
