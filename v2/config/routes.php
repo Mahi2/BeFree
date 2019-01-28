@@ -4,6 +4,10 @@
  */
 
 use Befree\Application\Controllers\DashboardController;
+use Befree\Application\Controllers\Analytics\{
+    LiveTrafficController,
+    VisitAnalyticsController
+};
 use Befree\Application\Controllers\Security\{
     AdBlockerDetectionController,
     BadBotController,
@@ -29,7 +33,8 @@ $router->get('/', [DashboardController::class, 'index'], "dashboard.index");
 
 //ANALYTICS
 analytics_routes : {
-
+    $router->get('analytics/live-traffic', [LiveTrafficController::class], 'analytics.live-traffic');
+    $router->get('analytics/visits', [VisitAnalyticsController::class], 'analytics.visits');
 }
 
 // SECURITY
