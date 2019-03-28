@@ -12,7 +12,7 @@
  *   file that was distributed with this source code.
  */
 
-ini_set('memory_limit', '4096M');
+ini_set('memory_limit', '2096M');
 ini_set('post_max_size', '20M');
 ini_set('upload_max_filesize', '20M');
 ini_set('max_file_uploads', '20');

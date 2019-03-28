@@ -45,7 +45,7 @@ class ErrorHandlerService
             $this->log->write($e);
         } else {
             echo $this->header();
-            echo $this->body(print_r($e, true), $e);
+            echo $this->body(var_dump($e), $e);
             exit();
         }
     }

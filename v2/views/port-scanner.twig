@@ -29,7 +29,7 @@
 							<h3 class="card-title">Port Scanner</h3>
 						</div>
 						<div class="card-body">
-							<form method="post" action="{{ path('portScanner') }}">IP / Domain:
+							<form method="post" action="{{ path('tools.portScanner') }}">IP / Domain:
 								<input type="text" class="form-control" name="ipdomain" placeholder="example.com" required/><br />
 								<input type="submit" class="btn btn-primary btn-block btn-flat" value="Scan" />
 							</form>
@@ -98,7 +98,6 @@
 {% block pageScript %}
 	<script>
         $(document).ready(function() {
-
             $('#dt-basic').dataTable( {
                 "responsive": true,
                 "language": {
