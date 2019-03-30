@@ -5,15 +5,29 @@ $password = "<DB_PASSWORD>"; // Database's user Password
 $database = "<DB_NAME>"; // Database Name
 $prefix   = "<DB_PREFIX>"; // Database Prefix for the script tables
 
-$mysqli = new mysqli($host, $user, $password, $database);
+$mysqli = (new class($host, $user, $password, $database) {
+    private $connexion;
+    public function __construct($host, $user, $password, $database)
+    {
+       $this->host = $host;
+       $this->user = $user;
+       $this->password = $password;
+       $this->database = $database;
+    }
 
-// Checking Connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
-
-$mysqli->set_charset("utf8");
+    public function getConnexion() {
+        if (is_null($this->connexion)) {
+            $this->connexion = new Mysqli($this->host, $this->user, $this->password, $this->database);
+            $this->connexion->set_charset("utf8");
+            if ($this->connexion->connect_errno) {
+                echo "Failed to connect to MySQL: " . $this->connexion->connect_error;
+                exit();
+            }  
+            return $this->connexion;
+        } 
+        return $this->connexion;  
+    }
+})->getConnexion();
 
 $site_url             = "<SITE_URL>";
 $projectsecurity_path = "<PROJECTSECURITY_PATH>";
