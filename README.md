@@ -125,6 +125,7 @@ Resources used:
 # Author
 
 * **Mahid_hm** *Code your freedom* [about me](https://about.me/mahid_hm)
+* **bernard-ng** **Create is my passion* [about me](https://bernad-ng.github.com)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
